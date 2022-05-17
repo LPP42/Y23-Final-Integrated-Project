@@ -15,7 +15,7 @@ public class Route
 	public uint Difficulty { get; set; } 
 	public uint Distance { get; set; } = 0;
 	//[DataType(DataType.Time)]
-	public uint ExpectedDuration {get;set;}
+	// public uint ExpectedDuration {get;set;}
 	public virtual IList<Point>? RoutePoints { get; set; }
 
 }
