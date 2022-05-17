@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Lab3.Models;
 
-namespace Lab3.Pages_Product
+namespace Lab3.Pages_Hike
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace Lab3.Pages_Product
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public Hike Hike { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace Lab3.Pages_Product
                 return NotFound();
             }
 
-            Product = await _context.Product.FirstOrDefaultAsync(m => m.ProductId == id);
+            Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
 
-            if (Product == null)
+            if (Hike == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace Lab3.Pages_Product
                 return NotFound();
             }
 
-            Product = await _context.Product.FindAsync(id);
+            Hike = await _context.Hike.FindAsync(id);
 
-            if (Product != null)
+            if (Hike != null)
             {
-                _context.Product.Remove(Product);
+                _context.Hike.Remove(Hike);
                 await _context.SaveChangesAsync();
             }
 

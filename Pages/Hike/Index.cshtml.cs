@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Lab3.Models;
 
-namespace Lab3.Pages_Product
+namespace Lab3.Pages_Hike
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace Lab3.Pages_Product
             _context = context;
         }
 
-        public IList<Product> Product { get;set; }
+        public IList<Hike> Hike { get;set; }
 
         public async Task OnGetAsync()
         {
-            Product = await _context.Product.ToListAsync();
+            Hike = await _context.Hike.ToListAsync();
         }
     }
 }

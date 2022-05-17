@@ -14,6 +14,9 @@ public class StoreDBContext : IdentityDbContext
 	{
 	}
 
-	public DbSet<Product> Product { get; set; }
-	public DbSet<User> User { get; set; }
+	public DbSet<Lab3.Models.Route> Route { get; set; }
+	public DbSet<Lab3.Models.Hike> Hike { get; set; }
+	public DbSet<Lab3.Models.Point> Point { get; set; }
+	public DbSet<Lab3.Models.Image> Image { get; set; }
+	//public DbSet<User> User { get; set; }
 }
