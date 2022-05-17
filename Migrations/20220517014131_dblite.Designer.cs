@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    partial class StoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220517014131_dblite")]
+    partial class dblite
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -28,6 +30,9 @@ namespace Lab3.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("OrganizerId")
+                        .HasColumnType("TEXT");
+
                     b.Property<int?>("RouteId")
                         .HasColumnType("INTEGER");
 
@@ -35,6 +40,8 @@ namespace Lab3.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("HikeId");
+
+                    b.HasIndex("OrganizerId");
 
                     b.HasIndex("RouteId");
 
@@ -169,6 +176,10 @@ namespace Lab3.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
@@ -219,6 +230,8 @@ namespace Lab3.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -304,11 +317,48 @@ namespace Lab3.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Lab3.Models.User", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("City")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StreetName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("StreetNumber")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("isAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.HasDiscriminator().HasValue("User");
+                });
+
             modelBuilder.Entity("Lab3.Models.Hike", b =>
                 {
+                    b.HasOne("Lab3.Models.User", "Organizer")
+                        .WithMany()
+                        .HasForeignKey("OrganizerId");
+
                     b.HasOne("Lab3.Models.Route", "Route")
                         .WithMany()
                         .HasForeignKey("RouteId");
+
+                    b.Navigation("Organizer");
 
                     b.Navigation("Route");
                 });

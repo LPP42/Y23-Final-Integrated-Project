@@ -6,13 +6,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<StoreDBContext>(opt => opt.UseLazyLoadingProxies().UseSqlite(
+	builder.Configuration.GetConnectionString("StoreDB"))
+);
 
+// var dbmsVersion = new MariaDbServerVersion(builder.Configuration.GetValue<string>("DBMSVersion"));
+// var connString = builder.Configuration.GetConnectionString("StoreDBContext");
 
-var dbmsVersion = new MariaDbServerVersion(builder.Configuration.GetValue<string>("DBMSVersion"));
-var connString = builder.Configuration.GetConnectionString("StoreDBContext");
-
-builder.Services.AddDbContext<StoreDBContext>(options =>
-	 options.UseLazyLoadingProxies().UseMySql(connString, dbmsVersion));
+// builder.Services.AddDbContext<StoreDBContext>(options =>
+// 	 options.UseLazyLoadingProxies().UseMySql(connString, dbmsVersion));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 	 .AddEntityFrameworkStores<StoreDBContext>();

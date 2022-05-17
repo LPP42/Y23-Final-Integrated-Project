@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lab3.Models;
 
-namespace Lab3.Pages_Product
+namespace Lab3.Pages_Hike
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace Lab3.Pages_Product
         }
 
         [BindProperty]
-        public Product Product { get; set; }
+        public Hike Hike { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,9 +30,9 @@ namespace Lab3.Pages_Product
                 return NotFound();
             }
 
-            Product = await _context.Product.FirstOrDefaultAsync(m => m.ProductId == id);
+            Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
 
-            if (Product == null)
+            if (Hike == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace Lab3.Pages_Product
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            _context.Attach(Hike).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace Lab3.Pages_Product
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(Product.ProductId))
+                if (!HikeExists(Hike.HikeId))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace Lab3.Pages_Product
             return RedirectToPage("./Index");
         }
 
-        private bool ProductExists(int id)
+        private bool HikeExists(int id)
         {
-            return _context.Product.Any(e => e.ProductId == id);
+            return _context.Hike.Any(e => e.HikeId == id);
         }
     }
 }
