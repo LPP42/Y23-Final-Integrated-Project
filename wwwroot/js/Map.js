@@ -4,8 +4,6 @@ mapboxgl.accessToken = "pk.eyJ1IjoibHBwNDIiLCJhIjoiY2wyYWZtNTFjMDUwMzNpcW50c3oye
 let map;
 
 let mapInit = async function () {
-    
-    let url = "http://localhost:3000/api";
 
     map = new mapboxgl.Map({
         container: 'map',
@@ -13,6 +11,13 @@ let mapInit = async function () {
         center: [-75.787, 45.456],
         zoom: 12
     });
+
+    map.addControl(
+        new MapboxDirections({
+            accessToken: mapboxgl.accessToken
+        }),
+        'top-left'
+    );
 }
 
 mapInit();
