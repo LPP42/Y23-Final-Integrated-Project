@@ -1,1 +1,1 @@
-# Lab3-2022
+Run with "dotnet watch"
