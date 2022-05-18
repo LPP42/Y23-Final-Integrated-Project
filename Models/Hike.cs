@@ -15,5 +15,6 @@ public class Hike
 	public DateTime? ScheduledTime {get;set;}
 	public virtual Route? Route {get;set;}
 	//public List<OrderItem> Items
-	
+	public int RouteId { get; set; }
+
 }
