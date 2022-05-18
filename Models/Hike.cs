@@ -11,9 +11,10 @@ public class Hike
 	public string? Name { get; set; }
 	[Range(0, 5)]
 	public string? Description { get; set; } 
-	//public virtual User? Organizer { get; set; }
-	public DateTime? ScheduledTime {get;set;}
-	public virtual Route? Route {get;set;}
-	//public List<OrderItem> Items
+	public virtual User? Organizer { get; set; }
 	
+	public DateTime? ScheduledTime {get;set;}
+	public int RouteId { get; set; }
+	public virtual Route? Route {get;set;} 
+
 }
