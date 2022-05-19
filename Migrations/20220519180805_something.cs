@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lab3.Migrations
 {
-    public partial class something2 : Migration
+    public partial class something : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -246,6 +246,30 @@ namespace Lab3.Migrations
                         principalColumn: "RouteId");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Signup",
+                columns: table => new
+                {
+                    SignupId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    HikeUserId = table.Column<string>(type: "TEXT", nullable: true),
+                    HikeId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Signup", x => x.SignupId);
+                    table.ForeignKey(
+                        name: "FK_Signup_AspNetUsers_HikeUserId",
+                        column: x => x.HikeUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Signup_Hike_HikeId",
+                        column: x => x.HikeId,
+                        principalTable: "Hike",
+                        principalColumn: "HikeId");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -302,6 +326,16 @@ namespace Lab3.Migrations
                 name: "IX_Point_RouteId",
                 table: "Point",
                 column: "RouteId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Signup_HikeId",
+                table: "Signup",
+                column: "HikeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Signup_HikeUserId",
+                table: "Signup",
+                column: "HikeUserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -322,16 +356,19 @@ namespace Lab3.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Hike");
-
-            migrationBuilder.DropTable(
                 name: "Image");
 
             migrationBuilder.DropTable(
                 name: "Point");
 
             migrationBuilder.DropTable(
+                name: "Signup");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Hike");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

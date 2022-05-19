@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20220519162541_something3")]
-    partial class something3
+    [Migration("20220519180805_something")]
+    partial class something
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace Lab3.Migrations
                     b.Property<string>("OrganizerId")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("RouteId")
+                    b.Property<int>("RouteId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("ScheduledTime")
@@ -110,6 +110,27 @@ namespace Lab3.Migrations
                     b.HasKey("RouteId");
 
                     b.ToTable("Route");
+                });
+
+            modelBuilder.Entity("Lab3.Models.Signup", b =>
+                {
+                    b.Property<int>("SignupId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("HikeId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("HikeUserId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("SignupId");
+
+                    b.HasIndex("HikeId");
+
+                    b.HasIndex("HikeUserId");
+
+                    b.ToTable("Signup");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -314,7 +335,7 @@ namespace Lab3.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Lab3.Models.User", b =>
+            modelBuilder.Entity("Lab3.Models.HikeUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -342,18 +363,20 @@ namespace Lab3.Migrations
                     b.Property<bool>("isAdmin")
                         .HasColumnType("INTEGER");
 
-                    b.HasDiscriminator().HasValue("User");
+                    b.HasDiscriminator().HasValue("HikeUser");
                 });
 
             modelBuilder.Entity("Lab3.Models.Hike", b =>
                 {
-                    b.HasOne("Lab3.Models.User", "Organizer")
+                    b.HasOne("Lab3.Models.HikeUser", "Organizer")
                         .WithMany()
                         .HasForeignKey("OrganizerId");
 
                     b.HasOne("Lab3.Models.Route", "Route")
                         .WithMany()
-                        .HasForeignKey("RouteId");
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Organizer");
 
@@ -376,6 +399,21 @@ namespace Lab3.Migrations
                         .HasForeignKey("RouteId");
 
                     b.Navigation("Route");
+                });
+
+            modelBuilder.Entity("Lab3.Models.Signup", b =>
+                {
+                    b.HasOne("Lab3.Models.Hike", "Hike")
+                        .WithMany()
+                        .HasForeignKey("HikeId");
+
+                    b.HasOne("Lab3.Models.HikeUser", "HikeUser")
+                        .WithMany()
+                        .HasForeignKey("HikeUserId");
+
+                    b.Navigation("Hike");
+
+                    b.Navigation("HikeUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
