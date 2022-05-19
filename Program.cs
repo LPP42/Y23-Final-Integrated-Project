@@ -1,3 +1,4 @@
+global using Lab3.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<StoreDBContext>(opt => opt.UseLazyLoadingProxies()
 // builder.Services.AddDbContext<StoreDBContext>(options =>
 // 	 options.UseLazyLoadingProxies().UseMySql(connString, dbmsVersion));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<HikeUser>(options => options.SignIn.RequireConfirmedAccount = true)
 	 .AddEntityFrameworkStores<StoreDBContext>();
 
 

@@ -18,5 +18,6 @@ public class StoreDBContext : IdentityDbContext
 	public DbSet<Lab3.Models.Hike> Hike { get; set; }
 	public DbSet<Lab3.Models.Point> Point { get; set; }
 	public DbSet<Lab3.Models.Image> Image { get; set; }
-	//public DbSet<User> User { get; set; }
+	public DbSet<Lab3.Models.Signup> Signup { get; set; }
+	public DbSet<HikeUser> HikeUser { get; set; }
 }

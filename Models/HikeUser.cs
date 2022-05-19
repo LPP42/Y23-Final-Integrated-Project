@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Lab3.Models;
 
 
-public class User:IdentityUser
+public class HikeUser:IdentityUser
 {
 	// public int UserId { get; set; }
     [PersonalData]

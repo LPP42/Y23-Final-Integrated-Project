@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    partial class StoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220518170626_signup")]
+    partial class signup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -119,14 +121,14 @@ namespace Lab3.Migrations
                     b.Property<int?>("HikeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("HikeUserId")
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("SignupId");
 
                     b.HasIndex("HikeId");
 
-                    b.HasIndex("HikeUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Signup");
                 });
@@ -333,7 +335,7 @@ namespace Lab3.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Lab3.Models.HikeUser", b =>
+            modelBuilder.Entity("Lab3.Models.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -361,12 +363,12 @@ namespace Lab3.Migrations
                     b.Property<bool>("isAdmin")
                         .HasColumnType("INTEGER");
 
-                    b.HasDiscriminator().HasValue("HikeUser");
+                    b.HasDiscriminator().HasValue("User");
                 });
 
             modelBuilder.Entity("Lab3.Models.Hike", b =>
                 {
-                    b.HasOne("Lab3.Models.HikeUser", "Organizer")
+                    b.HasOne("Lab3.Models.User", "Organizer")
                         .WithMany()
                         .HasForeignKey("OrganizerId");
 
@@ -405,13 +407,13 @@ namespace Lab3.Migrations
                         .WithMany()
                         .HasForeignKey("HikeId");
 
-                    b.HasOne("Lab3.Models.HikeUser", "HikeUser")
+                    b.HasOne("Lab3.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("HikeUserId");
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Hike");
 
-                    b.Navigation("HikeUser");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

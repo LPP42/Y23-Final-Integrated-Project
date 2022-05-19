@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Lab3.Models;
+using System.Diagnostics;
 
 namespace Lab3.Pages_Hike
 {
@@ -23,6 +24,7 @@ namespace Lab3.Pages_Hike
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            Debug.WriteLine("fdfdsgdsgsd");
             if (id == null)
             {
                 return NotFound();

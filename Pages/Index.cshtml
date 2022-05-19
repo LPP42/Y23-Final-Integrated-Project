@@ -1,9 +1,10 @@
 ﻿@page
+@using Lab3.Models;
 @using Microsoft.AspNetCore.Identity
 @model IndexModel
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<HikeUser> SignInManager
+@inject UserManager<HikeUser> UserManager
 @{
 	ViewData["Title"] = "Home page";
 

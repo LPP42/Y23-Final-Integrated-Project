@@ -1,7 +1,8 @@
+@* @using Lab3.Models; *@
 @using Microsoft.AspNetCore.Identity
 
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<HikeUser> SignInManager
+@inject UserManager<HikeUser> UserManager
 
 <ul class="navbar-nav">
 	@if (SignInManager.IsSignedIn(User))
