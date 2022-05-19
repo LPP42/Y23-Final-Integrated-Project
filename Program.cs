@@ -4,10 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<StoreDBContext>(opt => opt.UseLazyLoadingProxies().UseSqlite(
-	builder.Configuration.GetConnectionString("StoreDB"))
+    builder.Configuration.GetConnectionString("StoreDB"))
 );
 
 // var dbmsVersion = new MariaDbServerVersion(builder.Configuration.GetValue<string>("DBMSVersion"));
@@ -17,7 +18,7 @@ builder.Services.AddDbContext<StoreDBContext>(opt => opt.UseLazyLoadingProxies()
 // 	 options.UseLazyLoadingProxies().UseMySql(connString, dbmsVersion));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-	 .AddEntityFrameworkStores<StoreDBContext>();
+     .AddEntityFrameworkStores<StoreDBContext>();
 
 
 
@@ -26,11 +27,11 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-	app.UseExceptionHandler("/Error");
-	// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-	app.UseHsts();
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
-
+app.MapControllers();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
