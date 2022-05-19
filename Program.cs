@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<StoreDBContext>(opt => opt.UseLazyLoadingProxies().UseSqlite(
@@ -21,8 +21,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
      .AddEntityFrameworkStores<StoreDBContext>();
 
 
-
+builder.Services.AddControllers();
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

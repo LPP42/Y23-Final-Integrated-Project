@@ -1,4 +1,4 @@
-let todoServiceUrl = "https://localhost:7282/api/point";
+let PointServiceUrl = "https://localhost:7137/api/point";
 
 mapboxgl.accessToken = "pk.eyJ1IjoibHBwNDIiLCJhIjoiY2wyYWZtNTFjMDUwMzNpcW50c3oyemp3aiJ9.EcrbBNeaSRbjO0IeCzlbnA";
 let map;
@@ -23,7 +23,7 @@ function add_marker(event) {
     let marker = new mapboxgl.Marker();
     var coordinates = event.lngLat;
     markers.push({ marker: marker, coordinates: coordinates });
-    console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+    //console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
     marker.setLngLat(coordinates).addTo(map);
 
     marker.getElement().addEventListener('click', function (e) {
@@ -34,13 +34,37 @@ function add_marker(event) {
 }
 map.on('click', add_marker);
 
-
 let SaveRouteEl = document.getElementById('BtnSaveRoute');
 SaveRouteEl.addEventListener('click', function (e) {
+
+    let routeNameEl =  document.getElementById("routeName");
+    //console.log(routeNameEl.value);
+
+    let newRoute = {"Name":routeNameEl.value}
+    let newRouteData = fetch(PointServiceUrl, {
+        cache: 'no-cache',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json'
+        },
+        body: JSON.stringify(newRoute)
+    });
+
     markers.forEach((el) => {
-        console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
+        //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
 
-        PutPoint();
+        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng}
+        //console.log(newPoint);
 
+        let newPointData = fetch(PointServiceUrl, {
+            cache: 'no-cache',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify(newPoint)
+        });
     });
 });

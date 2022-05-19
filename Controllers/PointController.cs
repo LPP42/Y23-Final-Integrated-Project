@@ -14,9 +14,9 @@ namespace Lab3.Controllers;
 [ApiController]
 public class PointController : ControllerBase
 {
-    private readonly HikeDbContext _context;
+    private readonly StoreDBContext _context;
 
-    public PointController(HikeDbContext context)
+    public PointController(StoreDBContext context)
     {
         _context = context;
     }
@@ -26,7 +26,7 @@ public class PointController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Point>>> GetPointList()
     {
-        return await _context.Points.ToListAsync();
+        return await _context.Point.ToListAsync();
     }
 
     // GET: api/Point/5
@@ -34,7 +34,7 @@ public class PointController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Point>> GetPoint(uint id)
     {
-        var Point = await _context.Points.FindAsync(id);
+        var Point = await _context.Point.FindAsync(id);
 
         if (Point == null)
         {
@@ -79,10 +79,19 @@ public class PointController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Point>> PostPoint(Point Point)
     {
-        _context.Points.Add(Point);
+        _context.Point.Add(Point);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetPoint), new { id = Point.PointId }, Point);
+    }
+    //POST ROUTES
+    [HttpPost]
+    public async Task<ActionResult<Lab3.Models.Route>> PostRoute(Lab3.Models.Route Route)
+    {
+        _context.Route.Add(Route);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetPoint), new { id = Route.RouteId }, Route);
     }
 
     [HttpPatch("{id}")]
@@ -108,13 +117,13 @@ public class PointController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePoint(uint id)
     {
-        var Point = await _context.Points.FindAsync(id);
+        var Point = await _context.Point.FindAsync(id);
         if (Point == null)
         {
             return NotFound();
         }
 
-        _context.Points.Remove(Point);
+        _context.Point.Remove(Point);
         await _context.SaveChangesAsync();
 
         return NoContent();
@@ -122,7 +131,7 @@ public class PointController : ControllerBase
 
     private bool PointExists(uint id)
     {
-        return _context.Points.Any(e => e.PointId == id);
+        return _context.Point.Any(e => e.PointId == id);
     }
 }
 
