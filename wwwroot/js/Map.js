@@ -1,4 +1,5 @@
 let PointServiceUrl = "https://localhost:7137/api/point";
+let RouteServiceUrl = "https://localhost:7137/api/route";
 
 mapboxgl.accessToken = "pk.eyJ1IjoibHBwNDIiLCJhIjoiY2wyYWZtNTFjMDUwMzNpcW50c3oyemp3aiJ9.EcrbBNeaSRbjO0IeCzlbnA";
 let map;
@@ -41,7 +42,7 @@ SaveRouteEl.addEventListener('click', function (e) {
     //console.log(routeNameEl.value);
 
     let newRoute = {"Name":routeNameEl.value}
-    let newRouteData = fetch(PointServiceUrl, {
+    let newRouteData = fetch(RouteServiceUrl, {
         cache: 'no-cache',
         method: 'POST',
         headers: {
@@ -54,7 +55,7 @@ SaveRouteEl.addEventListener('click', function (e) {
     markers.forEach((el) => {
         //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
 
-        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng}
+        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng, "Route":routeNameEl.value}
         //console.log(newPoint);
 
         let newPointData = fetch(PointServiceUrl, {

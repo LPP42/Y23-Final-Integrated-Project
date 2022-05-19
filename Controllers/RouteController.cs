@@ -12,51 +12,49 @@ namespace Lab3.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class PointController : ControllerBase
+public class RouteController : ControllerBase
 {
     private readonly StoreDBContext _context;
 
-    public PointController(StoreDBContext context)
+    public RouteController(StoreDBContext context)
     {
         _context = context;
     }
 
-    // GET: api/Point
-    //return list of points
+    // GET: api/Route
+    //return list of Routes
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Point>>> GetPointList()
+    public async Task<ActionResult<IEnumerable<Lab3.Models.Route>>> GetRouteList()
     {
-        return await _context.Point.ToListAsync();
+        return await _context.Route.ToListAsync();
     }
 
-    // GET: api/Point/5
-    // return singular point
-
-
+    // GET: api/Route/5
+    // return singular Route
     [HttpGet("{id}")]
-    public async Task<ActionResult<Point>> GetPoint(uint id)
+    public async Task<ActionResult<Lab3.Models.Route>> GetRoute(uint id)
     {
-        var Point = await _context.Point.FindAsync(id);
+        var Route = await _context.Route.FindAsync(id);
 
-        if (Point == null)
+        if (Route == null)
         {
             return NotFound();
         }
-        return Point;
+        return Route;
     }
 
 
-    // PUT: api/Point/5
+    // PUT: api/Route/5
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutPoint(uint id, Point Point)
+    public async Task<IActionResult> PutRoute(uint id, Lab3.Models.Route Route)
     {
-        if (id != Point.PointId)
+        if (id != Route.RouteId)
         {
             return BadRequest();
         }
 
-        _context.Entry(Point).State = EntityState.Modified;
+        _context.Entry(Route).State = EntityState.Modified;
 
         try
         {
@@ -64,7 +62,7 @@ public class PointController : ControllerBase
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!PointExists(id))
+            if (!RouteExists(id))
             {
                 return NotFound();
             }
@@ -77,55 +75,55 @@ public class PointController : ControllerBase
         return NoContent();
     }
 
-    // POST: api/Point
+    // POST: api/Route
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Point>> PostPoint(Point Point)
+    public async Task<ActionResult<Lab3.Models.Route>> PostRoute(Lab3.Models.Route Route)
     {
-        _context.Point.Add(Point);
+        _context.Route.Add(Route);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetPoint), new { id = Point.PointId }, Point);
+        return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
     }
 
     [HttpPatch("{id}")]
-    public async Task<IActionResult> PatchPoint(uint id, Point Point)
+    public async Task<IActionResult> PatchRoute(uint id, Lab3.Models.Route Route)
     {
-        if (id != Point.PointId)
+        if (id != Route.RouteId)
         {
             return BadRequest();
         }
-        // var taskItem = await _context.Points.FindAsync(id);
-        if (Point == null)
+        // var taskItem = await _context.Routes.FindAsync(id);
+        if (Route == null)
         {
             return NotFound();
         }
         // taskItem.IsComplete = item.IsComplete;
-        _context.Update(Point);
+        _context.Update(Route);
         await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
-    // DELETE: api/Point/5
+    // DELETE: api/Route/5
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeletePoint(uint id)
+    public async Task<IActionResult> DeleteRoute(uint id)
     {
-        var Point = await _context.Point.FindAsync(id);
-        if (Point == null)
+        var Route = await _context.Route.FindAsync(id);
+        if (Route == null)
         {
             return NotFound();
         }
 
-        _context.Point.Remove(Point);
+        _context.Route.Remove(Route);
         await _context.SaveChangesAsync();
 
         return NoContent();
     }
 
-    private bool PointExists(uint id)
+    private bool RouteExists(uint id)
     {
-        return _context.Point.Any(e => e.PointId == id);
+        return _context.Route.Any(e => e.RouteId == id);
     }
 }
 
