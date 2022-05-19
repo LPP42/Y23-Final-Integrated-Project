@@ -55,7 +55,7 @@ SaveRouteEl.addEventListener('click', function (e) {
     markers.forEach((el) => {
         //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
 
-        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng, "Route":routeNameEl.value}
+        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng}
         //console.log(newPoint);
 
         let newPointData = fetch(PointServiceUrl, {
