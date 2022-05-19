@@ -91,7 +91,7 @@ public class PointController : ControllerBase
         _context.Route.Add(Route);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetPoint), new { id = Route.RouteId }, Route);
+        return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
     }
 
     [HttpPatch("{id}")]
