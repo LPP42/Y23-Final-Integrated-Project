@@ -15,12 +15,19 @@ namespace Lab3.Controllers;
 public class RouteController : ControllerBase
 {
     private readonly StoreDBContext _context;
+<<<<<<< HEAD
     private readonly ILogger<RouteController> _logger;
 
     public RouteController(StoreDBContext context , ILogger<RouteController> logger)
     {
         _context = context;
          _logger = logger;
+=======
+
+    public RouteController(StoreDBContext context)
+    {
+        _context = context;
+>>>>>>> calendar
     }
 
     // GET: api/Route
@@ -32,10 +39,18 @@ public class RouteController : ControllerBase
     }
 
     // GET: api/Route/5
+<<<<<<< HEAD
+=======
+    // return singular Route
+>>>>>>> calendar
     [HttpGet("{id}")]
     public async Task<ActionResult<Lab3.Models.Route>> GetRoute(uint id)
     {
         var Route = await _context.Route.FindAsync(id);
+<<<<<<< HEAD
+=======
+
+>>>>>>> calendar
         if (Route == null)
         {
             return NotFound();
@@ -43,13 +58,96 @@ public class RouteController : ControllerBase
         return Route;
     }
 
+<<<<<<< HEAD
     // POST: api/Route
+=======
+
+    // PUT: api/Route/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutRoute(uint id, Lab3.Models.Route Route)
+    {
+        if (id != Route.RouteId)
+        {
+            return BadRequest();
+        }
+
+        _context.Entry(Route).State = EntityState.Modified;
+
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!RouteExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+    }
+
+    // POST: api/Route
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+>>>>>>> calendar
     [HttpPost]
     public async Task<ActionResult<Lab3.Models.Route>> PostRoute(Lab3.Models.Route Route)
     {
         _context.Route.Add(Route);
         await _context.SaveChangesAsync();
+<<<<<<< HEAD
         return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
     }
+=======
+
+        return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
+    }
+
+    [HttpPatch("{id}")]
+    public async Task<IActionResult> PatchRoute(uint id, Lab3.Models.Route Route)
+    {
+        if (id != Route.RouteId)
+        {
+            return BadRequest();
+        }
+        // var taskItem = await _context.Routes.FindAsync(id);
+        if (Route == null)
+        {
+            return NotFound();
+        }
+        // taskItem.IsComplete = item.IsComplete;
+        _context.Update(Route);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    // DELETE: api/Route/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteRoute(uint id)
+    {
+        var Route = await _context.Route.FindAsync(id);
+        if (Route == null)
+        {
+            return NotFound();
+        }
+
+        _context.Route.Remove(Route);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    private bool RouteExists(uint id)
+    {
+        return _context.Route.Any(e => e.RouteId == id);
+    }
+>>>>>>> calendar
 }
 

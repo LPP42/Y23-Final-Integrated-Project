@@ -28,6 +28,8 @@ public class PointController : ControllerBase
     }
 
     // GET: api/Point/5
+    // return singular point
+
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Point>> GetPoint(uint id)
