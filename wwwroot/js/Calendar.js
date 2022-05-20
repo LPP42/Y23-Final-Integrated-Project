@@ -1,4 +1,7 @@
-
+{/* <script>
+    let eventsArr = loadData();
+    let calendar = initCalendar();
+    function loadData() { */}
     function twoDigiter(n){return n<10? '0'+n:''+n;}
     const convert1224 = (t12) => {
         const [time, modifier] = t12.split(' ');
@@ -26,21 +29,9 @@
             let tdElems = tr.getElementsByTagName("td");
             let splitted =tdElems[2].innerText.split(" ");
             let sdate = splitted[0].split("/");
-            let year;
-            let day;
-            let month;
-            // console.log(splitted[0]);
-            // console.log(sdate[1]);
-            if (sdate[1]=="undefined") {
-                sdate = splitted[0].split("-");
-                day = twoDigiter(sdate[2]);
-                month = twoDigiter(sdate[1]);
-                year = sdate[0];
-            } else {
-            day = twoDigiter(sdate[1]);
-            month = twoDigiter(sdate[0]);
-            year = sdate[2];
-            }
+            let day = twoDigiter(sdate[1]);
+            let month = twoDigiter(sdate[0]);
+            let year = sdate[2];
             let hrs =convert1224(splitted[1]+" "+splitted[2]);
             //console.log(splitted[1]);
             let eventObj = {
@@ -50,7 +41,7 @@
             }
             eventsArr.push(eventObj);
         }
-        console.log(eventsArr);
+        //console.log(eventsArr);
         let calendarEl = document.getElementById('calendar');
         let calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
