@@ -234,7 +234,7 @@ namespace Lab3.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Lat = table.Column<decimal>(type: "decimal(9,6)", nullable: true),
                     Lng = table.Column<decimal>(type: "decimal(9,6)", nullable: true),
-                    RouteId = table.Column<int>(type: "INTEGER", nullable: true)
+                    RouteId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -243,7 +243,8 @@ namespace Lab3.Migrations
                         name: "FK_Point_Route_RouteId",
                         column: x => x.RouteId,
                         principalTable: "Route",
-                        principalColumn: "RouteId");
+                        principalColumn: "RouteId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

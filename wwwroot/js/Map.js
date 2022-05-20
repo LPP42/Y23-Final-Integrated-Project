@@ -55,14 +55,14 @@ SaveRouteEl.addEventListener('click', async function (e) {
     let newRouteInfo = await newRouteData;
     let newRouteJson = await (await newRouteData).json();
 
-    // console.log(newRouteInfo.routeId);
+    console.log(newRouteJson.routeId);
 
 
     markers.forEach((el) => {
         //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
-        // console.log(newRouteInfo.routeId);
+        
 
-        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"Route": newRouteInfo }
+        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"RouteId": newRouteJson.routeId }
         console.log(newPoint);
 
         let newPointData = fetch(PointServiceUrl, {

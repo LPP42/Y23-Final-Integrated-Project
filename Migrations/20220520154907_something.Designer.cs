@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20220519181729_something2")]
-    partial class something2
+    [Migration("20220520154907_something")]
+    partial class something
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -82,7 +82,7 @@ namespace Lab3.Migrations
                     b.Property<decimal?>("Lng")
                         .HasColumnType("decimal(9,6)");
 
-                    b.Property<int?>("RouteId")
+                    b.Property<int>("RouteId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PointId");
@@ -396,7 +396,9 @@ namespace Lab3.Migrations
                 {
                     b.HasOne("Lab3.Models.Route", "Route")
                         .WithMany("RoutePoints")
-                        .HasForeignKey("RouteId");
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Route");
                 });

@@ -80,7 +80,7 @@ namespace Lab3.Migrations
                     b.Property<decimal?>("Lng")
                         .HasColumnType("decimal(9,6)");
 
-                    b.Property<int?>("RouteId")
+                    b.Property<int>("RouteId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("PointId");
@@ -394,7 +394,9 @@ namespace Lab3.Migrations
                 {
                     b.HasOne("Lab3.Models.Route", "Route")
                         .WithMany("RoutePoints")
-                        .HasForeignKey("RouteId");
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Route");
                 });
