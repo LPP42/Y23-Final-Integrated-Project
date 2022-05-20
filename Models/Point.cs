@@ -13,4 +13,5 @@ public class Point
     [Column(TypeName = "decimal(9,6)")]
     public decimal? Lng { get; set; }
     public virtual Route? Route { get; set; }
+    public int RouteId { get; set; }
 }
