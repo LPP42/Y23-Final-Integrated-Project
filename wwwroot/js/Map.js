@@ -36,12 +36,12 @@ function add_marker(event) {
 map.on('click', add_marker);
 
 let SaveRouteEl = document.getElementById('BtnSaveRoute');
-SaveRouteEl.addEventListener('click', function (e) {
 
-    let routeNameEl =  document.getElementById("routeName");
+SaveRouteEl.addEventListener('click', async function (e) {
+    let routeNameEl = document.getElementById("routeName");
     //console.log(routeNameEl.value);
 
-    let newRoute = {"Name":routeNameEl.value}
+    let newRoute = { "Name": routeNameEl.value }
     let newRouteData = fetch(RouteServiceUrl, {
         cache: 'no-cache',
         method: 'POST',
@@ -52,11 +52,18 @@ SaveRouteEl.addEventListener('click', function (e) {
         body: JSON.stringify(newRoute)
     });
 
+    let newRouteInfo = await newRouteData;
+    let newRouteJson = await (await newRouteData).json();
+
+    // console.log(newRouteInfo.routeId);
+
+
     markers.forEach((el) => {
         //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
+        // console.log(newRouteInfo.routeId);
 
-        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng}
-        //console.log(newPoint);
+        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"Route": newRouteInfo }
+        console.log(newPoint);
 
         let newPointData = fetch(PointServiceUrl, {
             cache: 'no-cache',

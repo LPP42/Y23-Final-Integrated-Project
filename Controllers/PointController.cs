@@ -15,14 +15,12 @@ namespace Lab3.Controllers;
 public class PointController : ControllerBase
 {
     private readonly StoreDBContext _context;
-
     public PointController(StoreDBContext context)
     {
         _context = context;
     }
 
     // GET: api/Point
-    //return list of points
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Point>>> GetPointList()
     {
@@ -30,8 +28,6 @@ public class PointController : ControllerBase
     }
 
     // GET: api/Point/5
-    // return singular point
-
 
     [HttpGet("{id}")]
     public async Task<ActionResult<Point>> GetPoint(uint id)
@@ -45,40 +41,7 @@ public class PointController : ControllerBase
         return Point;
     }
 
-
-    // PUT: api/Point/5
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-    [HttpPut("{id}")]
-    public async Task<IActionResult> PutPoint(uint id, Point Point)
-    {
-        if (id != Point.PointId)
-        {
-            return BadRequest();
-        }
-
-        _context.Entry(Point).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
-        }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!PointExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
-        }
-
-        return NoContent();
-    }
-
     // POST: api/Point
-    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
     public async Task<ActionResult<Point>> PostPoint(Point Point)
     {
@@ -86,46 +49,6 @@ public class PointController : ControllerBase
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetPoint), new { id = Point.PointId }, Point);
-    }
-
-    [HttpPatch("{id}")]
-    public async Task<IActionResult> PatchPoint(uint id, Point Point)
-    {
-        if (id != Point.PointId)
-        {
-            return BadRequest();
-        }
-        // var taskItem = await _context.Points.FindAsync(id);
-        if (Point == null)
-        {
-            return NotFound();
-        }
-        // taskItem.IsComplete = item.IsComplete;
-        _context.Update(Point);
-        await _context.SaveChangesAsync();
-
-        return NoContent();
-    }
-
-    // DELETE: api/Point/5
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeletePoint(uint id)
-    {
-        var Point = await _context.Point.FindAsync(id);
-        if (Point == null)
-        {
-            return NotFound();
-        }
-
-        _context.Point.Remove(Point);
-        await _context.SaveChangesAsync();
-
-        return NoContent();
-    }
-
-    private bool PointExists(uint id)
-    {
-        return _context.Point.Any(e => e.PointId == id);
     }
 }
 
