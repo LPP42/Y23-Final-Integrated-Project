@@ -1,4 +1,5 @@
 
+
     // function twoDigiter(n){
     //     if(n[0] ==0) {return n} else {return n<10? '0'+n:''+n;}}
     // const convert1224 = (t12) => {
