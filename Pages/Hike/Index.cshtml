@@ -6,6 +6,65 @@
 }
 
 <h1>Index</h1>
+<form id="searchMenu">
+    <div id=SearchMenuRight>
+        Search Name:
+        <input type="search" asp-for="SearchName" />
+        @* Filter Price:
+        <input type="checkbox" asp-for="filterPriceOn" checked="true" />
+        Set Maximum Price:
+        $<label id="spLabel1" class="spLabel">@Model.SearchPriceMax</label>
+        <input type="range" oninput="document.getElementById('spLabel1').innerHTML=this.value;" step="1" max="300"
+            asp-for="SearchPriceMax" />
+        Set Minimum Price:
+        $<label id="spLabel2" class="spLabel">@Model.SearchPriceMin</label>
+        <input type="range" oninput="document.getElementById('spLabel2').innerHTML=this.value;" step="1" max="300"
+            asp-for="SearchPriceMin" /> *@
+    </div>
+    <div id=SearchMenuLeft>
+        @* <p>Search by Route Length:
+        <select asp-for="LengthLevel">
+            @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+            {
+                <option value="@length">
+                    @length
+                </option>
+            }
+        </select>
+        </p> *@
+        <p>Search by Difficulty:
+        <select asp-for="DifficultyLevel">
+            @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
+            {
+                <option value="@difficulty">
+                    @difficulty
+                </option>
+            }
+        </select>
+        </p>
+        <p>Search by Route Length:
+        <select asp-for="LengthLevel">
+            @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+            {
+                <option value="@length">
+                    @length
+                </option>
+            }
+        </select>
+        </p>
+        @* Search by recomended age:
+        <input type="number" asp-for="SearchAge" />
+        <br> *@
+        Enable filters
+        <input type="checkbox" asp-for="filterOn" checked="true" />
+        <br>
+        <input class="srch" type="submit" title="Search" value="Search" >
+        @* 3
+        @Model.LengthLevel
+        @Model.DifficultyLevel *@
+        @* </p> *@
+    </div>
+</form>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -14,10 +73,16 @@
     <thead>
         <tr>
             <th>
+                Hike Id
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Hike[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Hike[0].ScheduledTime)
+                Scheduled Date & Time
+            </th>
+             <th>
+                Route Name
             </th>
 
         </tr>
@@ -42,7 +107,7 @@
             </td>
         </tr>
 }
-<p>@Model.Hike.ElementAt(0).ScheduledTime</p>
+@* <p>@Model.Hike.ElementAt(0).ScheduledTime</p> *@
 <div class="calendarContainer">
     <div id="calendar"></div>
 </div>

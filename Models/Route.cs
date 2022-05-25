@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab3.Models;
-
+public enum RouteDifficultyLevel { Beginner, Easy, Medium, Hard, Pro }
+public enum RouteLengthLevel {Shorter, Short, Long, Longer}
 
 public class Route
 {
@@ -12,8 +13,8 @@ public class Route
     [Range(0, 5)]
     //[DataType(DataType.Currency)]
     //[Column(TypeName = "decimal(3,2)")]
-    public uint Difficulty { get; set; } = 3;
-    public uint Distance { get; set; } = 0;
+    public RouteDifficultyLevel Difficulty { get; set; }
+    public RouteLengthLevel Distance { get; set; }
     //[DataType(DataType.Time)]
     // public uint ExpectedDuration {get;set;}
     public virtual IList<Point>? RoutePoints { get; set; }
