@@ -23,8 +23,11 @@ function add_marker(event) {
 
     let marker = new mapboxgl.Marker();
     var coordinates = event.lngLat;
+    console.log(coordinates);
     markers.push({ marker: marker, coordinates: coordinates });
     //console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+
+    console.log("marker:",marker);
     marker.setLngLat(coordinates).addTo(map);
 
     marker.getElement().addEventListener('click', function (e) {
@@ -59,8 +62,6 @@ SaveRouteEl.addEventListener('click', async function (e) {
 
 
     markers.forEach((el) => {
-        //console.log("lat:", el.coordinates.lat, "lng:", el.coordinates.lng);
-        
 
         let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"RouteId": newRouteJson.routeId }
         console.log(newPoint);
