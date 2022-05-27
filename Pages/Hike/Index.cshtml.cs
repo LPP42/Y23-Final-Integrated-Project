@@ -21,6 +21,10 @@ namespace Lab3.Pages_Hike
 
         public IList<Hike> Hike { get;set; }
         [BindProperty(SupportsGet = true)]
+        public bool filterShow { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public bool calShow { get; set; }
+        [BindProperty(SupportsGet = true)]
         public bool filterOn { get; set; }
         [BindProperty(SupportsGet = true)]
         public string SearchName { get; set; }
@@ -28,6 +32,7 @@ namespace Lab3.Pages_Hike
         public RouteDifficultyLevel? DifficultyLevel { get; set; }
         [BindProperty(SupportsGet = true)]
         public RouteLengthLevel? LengthLevel { get; set; }
+
         public async Task OnGetAsync()
         {
             var hikes = from p in _context.Hike select p;
