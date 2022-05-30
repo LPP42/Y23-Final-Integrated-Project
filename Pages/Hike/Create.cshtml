@@ -20,19 +20,34 @@
             </div>
             <div class="form-group">
                 <label asp-for="Hike.Route" class="control-label"></label>
-                <select asp-for="Hike.RouteId" class="form-control"
-                        asp-items="@Model.RouteNameSL">
+                <select asp-for="Hike.RouteId" class="form-control" asp-items="@Model.RouteNameSL">
                     <option value="">-- Select Route --</option>
                 </select>
                 <span asp-validation-for="Hike.RouteId" class="text-danger" />
                 @* <label asp-for="Hike.Route.RouteId" class="control-label"></label>
-                <input asp-for="Hike.Route.RouteId" class="form-control" />
-                <span asp-validation-for="Hike.Route.RouteId" class="text-danger"></span> *@
+                    <input asp-for="Hike.Route.RouteId" class="form-control" />
+                    <span asp-validation-for="Hike.Route.RouteId" class="text-danger"></span> *@
             </div>
-            <div class="form-group">  
-                <label asp-for="Hike.ScheduledTime" class="control-label"></label>    
-                <input class="form-control" asp-for="Hike.ScheduledTime"  asp-format="{0:yyyy-MM-ddTHH:mm}" />
+            <div class="form-group">
+                <label asp-for="Hike.ScheduledTime" class="control-label"></label>
+                <input class="form-control" asp-for="Hike.ScheduledTime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
             </div>
+
+            <div class="form-group">
+                <label asp-for="Hike.Description" class="control-label"></label>
+                <textarea asp-for="Hike.Description" class="form-control description-text-box"></textarea>
+                <span asp-validation-for="Hike.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                @*input type="hidden"*@
+                <label asp-for="Hike.Organizer" class="control-label"></label>
+                <input type="text" asp-for="Hike.Organizer" class="form-control Organizer-text-box"></textarea>
+                <span asp-validation-for="Hike.Organizer" class="text-danger"></span>
+
+
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -45,5 +60,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -8,55 +8,63 @@
 
 
 <div>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hike.Name)
-        </dt>
+    @* <dl class="row"> *@
+       
         <dd class="col-sm-10">
+            <label>Hike name:</label>
             @Html.DisplayFor(model => model.Hike.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Hike.Route)
-        </dt>
+       
         <dd class="col-sm-10">
+            <label hidden>RouteId:</label>
+            <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
+            <br hidden>
+            <label>Route name:</label>
             @Html.DisplayFor(model => model.Hike.Route.Name)
             <br>
             <label>Distance:</label>
             @Html.DisplayFor(model => model.Hike.Route.Distance)
-            km
             <br>
             <label>Difficulty:</label>
-            @Html.DisplayFor(model => model.Hike.Route.Difficulty)<label>/5</label>
+            @Html.DisplayFor(model => model.Hike.Route.Difficulty)
+            <br>
+            <label >Description:</label>
+            <br>
+            <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
+            </textarea>
+            
+
         </dd>
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
-
         <div id="map"></div>
-        <script type="text/javascript" src="~/js/Map.js"></script>
-    </dl>
+        <script type="text/javascript" src="~/js/HikeInfo.js"></script>
+
+    @* </dl> *@
 </div>
 <table class="table" id="todoTable">
-        <thead>
-            <tr>List of Signed Up Hikers</tr>
-            <tr>
-                <th>
-                    User Name
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Hiker) {
+    <thead>
+        <tr>List of Signed Up Hikers</tr>
+        <tr>
+            <th>
+                User Name
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Hiker)
+        {
             <tr class="trl">
                 @* <td>
                     @Html.DisplayFor(modelItem => item.HikeId)
-                </td> *@
+                    </td> *@
                 <td>
                     @Html.DisplayFor(modelItem => item.HikeUser.UserName)
                 </td>
             </tr>
-            }
-        </tbody>
+        }
+    </tbody>
 </table>
 
 <div>

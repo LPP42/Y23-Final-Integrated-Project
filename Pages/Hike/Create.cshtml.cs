@@ -46,7 +46,7 @@ namespace Lab3.Pages_Hike
             if (await TryUpdateModelAsync<Hike>(
                  newHike,
                  "hike",   // Prefix for form value.
-                 s => s.HikeId, s => s.Name, s => s.RouteId, s => s.ScheduledTime))
+                 s => s.HikeId, s => s.Name, s => s.RouteId, s => s.ScheduledTime, s => s.Description, s => s.Organizer))
             {
                 _context.Hike.Add(newHike);
                 await _context.SaveChangesAsync();

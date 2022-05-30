@@ -9,7 +9,6 @@ public class Hike
 {
 	public int HikeId { get; set; }
 	public string? Name { get; set; }
-	[Range(0, 5)]
 	public string? Description { get; set; } 
 	public virtual HikeUser? Organizer { get; set; }
 	public DateTime? ScheduledTime {get;set;}
