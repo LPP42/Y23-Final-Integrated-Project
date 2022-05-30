@@ -20,10 +20,45 @@ namespace Lab3.Pages_Hike
         }
 
         public IList<Hike> Hike { get;set; }
+        [BindProperty(SupportsGet = true)]
+        public bool filterShow { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public bool calShow { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public bool filterOn { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchName { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public RouteDifficultyLevel? DifficultyLevel { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public RouteLengthLevel? LengthLevel { get; set; }
 
         public async Task OnGetAsync()
         {
-            Hike = await _context.Hike.ToListAsync();
+            var hikes = from p in _context.Hike select p;
+            if (filterOn)
+            {
+                // filter by name
+                if (!string.IsNullOrEmpty(SearchName))
+                {
+                    hikes = hikes.Where(p => p.Name.Contains(SearchName));
+                }
+
+                // filter by difficulty
+                if (DifficultyLevel != null)
+                {
+                    hikes = hikes.Where(p => p.Route.Difficulty ==  DifficultyLevel);
+                }
+
+                // filter by distance
+                if (LengthLevel != null)
+                {
+                    hikes = hikes.Where(p => p.Route.Distance ==  LengthLevel);
+                }
+
+            }
+            
+            Hike = await hikes.ToListAsync();
         }
     }
 }

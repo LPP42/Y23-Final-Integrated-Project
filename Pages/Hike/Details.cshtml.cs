@@ -21,10 +21,9 @@ namespace Lab3.Pages_Hike
         }
 
         public Hike Hike { get; set; }
-
+        public IList<Signup> Hiker { get;set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            Debug.WriteLine("fdfdsgdsgsd");
             if (id == null)
             {
                 return NotFound();
@@ -36,6 +35,10 @@ namespace Lab3.Pages_Hike
             {
                 return NotFound();
             }
+
+            var hikers = from p in _context.Signup select p;
+            hikers = hikers.Where(p => p.Hike ==  Hike);
+            Hiker = await hikers.ToListAsync();
             return Page();
         }
     }

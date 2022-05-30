@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20220520164942_something")]
-    partial class something
+    [Migration("20220530135156_rana6")]
+    partial class rana6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -98,10 +98,10 @@ namespace Lab3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<uint>("Difficulty")
+                    b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
 
-                    b.Property<uint>("Distance")
+                    b.Property<int>("Distance")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")

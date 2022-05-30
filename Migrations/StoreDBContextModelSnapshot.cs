@@ -96,10 +96,10 @@ namespace Lab3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<uint>("Difficulty")
+                    b.Property<int>("Difficulty")
                         .HasColumnType("INTEGER");
 
-                    b.Property<uint>("Distance")
+                    b.Property<int>("Distance")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
