@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lab3.Models;
 public enum RouteDifficultyLevel { Beginner, Easy, Medium, Hard, Pro }
-public enum RouteLengthLevel {Shorter, Short, Long, Longer}
+public enum RouteLengthLevel {Shortest, Short,Medium, Long, Longest}
 
 public class Route
 {
