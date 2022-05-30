@@ -20,27 +20,31 @@ public class PointController : ControllerBase
         _context = context;
     }
 
-    // GET: api/Point
+    //GET: api/Point
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Point>>> GetPointList()
+    public async Task<ActionResult<IEnumerable<PointView>>> GetPointList()
     {
-        return await _context.Point.ToListAsync();
+        List<PointView> PointList = new();
+        var result = await _context.Point.ToListAsync();
+        foreach (Point p in result)
+        {
+            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId });
+        }
+        return PointList;
     }
 
-    // GET: api/Point/5
-    // return singular point
-
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Point>> GetPoint(uint id)
+    // GET: api/Point
+    [HttpGet("route/{id}")]
+    public async Task<ActionResult<IEnumerable<PointView>>> GetRoutePointList(uint id)
     {
-        var Point = await _context.Point.FindAsync(id);
+        List<PointView> PointList = new();
 
-        if (Point == null)
+        var result = await _context.Point.Where(r => r.RouteId == id).ToListAsync();
+        foreach (Point p in result)
         {
-            return NotFound();
+            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId });
         }
-        return Point;
+        return PointList;
     }
 
     // POST: api/Point
@@ -50,7 +54,7 @@ public class PointController : ControllerBase
         _context.Point.Add(Point);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetPoint), new { id = Point.PointId }, Point);
+        return CreatedAtAction(nameof(Point), new { id = Point.PointId }, Point);
     }
 }
 
