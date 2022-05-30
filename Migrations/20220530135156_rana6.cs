@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lab3.Migrations
 {
-    public partial class something : Migration
+    public partial class rana6 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,8 +64,8 @@ namespace Lab3.Migrations
                     RouteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Difficulty = table.Column<uint>(type: "INTEGER", nullable: false),
-                    Distance = table.Column<uint>(type: "INTEGER", nullable: false)
+                    Difficulty = table.Column<int>(type: "INTEGER", nullable: false),
+                    Distance = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
