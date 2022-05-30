@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lab3.Migrations
 {
-    public partial class rana6 : Migration
+    public partial class rana7 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

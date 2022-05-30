@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20220530135156_rana6")]
-    partial class rana6
+    [Migration("20220530145338_rana7")]
+    partial class rana7
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
