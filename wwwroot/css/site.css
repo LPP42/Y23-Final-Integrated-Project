@@ -15,6 +15,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-image: url("../images/background2-1.jpg");
+     background-size:auto;
+  background-repeat:repeat;
 }
 
 #map {
