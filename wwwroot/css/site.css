@@ -20,6 +20,16 @@ body {
   background-repeat: repeat;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  padding: 5px;
+
+}
+
 #map {
   margin-top: 5vh;
   width: 100%;
