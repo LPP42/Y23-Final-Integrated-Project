@@ -5,36 +5,38 @@
     ViewData["Title"] = "Your Scheduled Hikes";
 }
 <h1>Your Scheduled Hikes</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Signup[0].Hike.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Signup[0].Hike.ScheduledTime)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Signup)
-        {
-
-            <tr class="hikeBar">
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hike.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hike.ScheduledTime)
-                </td>
-
-                <td>
-                    <a asp-page="Remove" asp-route-id="@item.SignupId">Remove me from this hike</a>
-                </td>
-                <br>
+<div id="ScheduledHike">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Signup[0].Hike.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Signup[0].Hike.ScheduledTime)
+                </th>
             </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Signup)
+            {
 
-        }
-    </tbody>
-</table>
+                <tr id="scheduledHikeRow" class="hikeBar">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hike.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hike.ScheduledTime)
+                    </td>
+
+                    <td>
+                        <a asp-page="Remove" asp-route-id="@item.SignupId">Remove me from this hike</a>
+                    </td>
+                    <br>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
 <div><a href="/Hike">See the List of Hikes</a></div>
