@@ -83,6 +83,17 @@ a:hover {
   cursor: pointer;
 }
 
+.srch:hover {
+  background-color: rgba(246, 237, 237, 0.747);
+  color: black;
+  /* padding: 15px 2px; */
+  transition: 0.2s;
+
+  /* font-size: larger; */
+  font-weight: 500;
+  cursor: pointer;
+}
+
 
 footer {
 
