@@ -30,6 +30,10 @@ a:hover {
 
 }
 
+#todoTable:hover {
+  background-color: rgb(160, 218, 199);
+}
+
 #map {
   margin-top: 5vh;
   width: 100%;
