@@ -14,6 +14,11 @@ namespace Lab3.Pages_Map
     {
         private readonly StoreDBContext _context;
 
+        [BindProperty(SupportsGet = true)]
+        public RouteDifficultyLevel? DifficultyLevel { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public RouteLengthLevel? LengthLevel { get; set; }
+
         public MapModel(StoreDBContext context)
         {
             _context = context;

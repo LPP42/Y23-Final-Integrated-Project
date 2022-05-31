@@ -22,6 +22,7 @@ namespace Lab3.Pages_Hike
 
         public Hike Hike { get; set; }
         public IList<Signup> Hiker { get;set; }
+        public IList<Image> Images { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -35,7 +36,9 @@ namespace Lab3.Pages_Hike
             {
                 return NotFound();
             }
-
+            var images = from g in _context.Image select g;
+            images = images.Where(g => g.Route == Hike.Route);
+            Images = await images.ToListAsync();
             var hikers = from p in _context.Signup select p;
             hikers = hikers.Where(p => p.Hike ==  Hike);
             Hiker = await hikers.ToListAsync();

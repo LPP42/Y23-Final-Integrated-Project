@@ -42,9 +42,26 @@ let SaveRouteEl = document.getElementById('BtnSaveRoute');
 
 SaveRouteEl.addEventListener('click', async function (e) {
     let routeNameEl = document.getElementById("routeName");
-    //console.log(routeNameEl.value);
-
-    let newRoute = { "Name": routeNameEl.value }
+    let routeDifEl = document.getElementById("difBox");
+    let routeLenEl = document.getElementById("lenBox");
+    let difInt; let lenInt;
+    switch(routeDifEl.value) {
+    case "Beginner": difInt=0; break;
+    case "Easy": difInt=1; break;
+    case "Medium": difInt=2; break;
+    case "Hard": difInt=3; break;
+    case "Pro": difInt=4; break;
+    }
+    switch(routeLenEl.value) {
+    case "Shortest": lenInt=0; break;
+    case "Short": lenInt=1; break;
+    case "Medium": lenInt=2; break;
+    case "Long": lenInt=3; break;
+    case "Longest": lenInt=4; break;
+    }
+    //console.log(difInt);
+    //console.log(difficulty);
+    let newRoute = { "Name": routeNameEl.value, "Difficulty": difInt, "Distance":lenInt }
     let newRouteData = fetch(RouteServiceUrl, {
         cache: 'no-cache',
         method: 'POST',
@@ -54,7 +71,15 @@ SaveRouteEl.addEventListener('click', async function (e) {
         },
         body: JSON.stringify(newRoute)
     });
-
+    // let checkR = await fetch(RouteServiceUrl, {
+    //     method: 'GET',
+    //     // url: '@Url.Action("SomeAction", "ControllerName")',
+    //     dataType: 'json',
+    //     success: function (data) {
+          
+    //     }
+    //     });
+    //     console.log(checkR);
     let newRouteInfo = await newRouteData;
     let newRouteJson = await (await newRouteData).json();
 
@@ -76,4 +101,5 @@ SaveRouteEl.addEventListener('click', async function (e) {
             body: JSON.stringify(newPoint)
         });
     });
+    window.location.href = '../Map/Add/';
 });

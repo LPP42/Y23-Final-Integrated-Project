@@ -1,0 +1,16 @@
+@page
+@model Lab3.Pages_Map.AddModel
+
+@{
+	ViewData["Title"] = "Route Saved";
+}
+
+<h4>Route Saved to the List of Routes</h4>
+<hr />
+@Html.Raw(TempData["msg"])
+<div>
+	<a asp-page="../Hike/Index">List of Hikes</a>
+	@* <a class="nav-link text-dark" asp-area="" asp-page="/Product/Index">Products</a> *@
+</div>
+<div><a href="../AddImage">Add Images for Route</a></div>
+<div><a href="../Map">Save another Route</a></div>
