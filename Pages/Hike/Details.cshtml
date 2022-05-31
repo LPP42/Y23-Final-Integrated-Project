@@ -5,47 +5,50 @@
     ViewData["Title"] = "Details";
     } *@
 
+<br><br>
+<br><br>
 
+<h1>Hike Details</h1>
 
 <div>
     @* <dl class="row"> *@
-       
-        <dd class="col-sm-10">
-            <label>Hike name:</label>
-            @Html.DisplayFor(model => model.Hike.Name)
-        </dd>
-       
-        <dd class="col-sm-10">
-            <label hidden>RouteId:</label>
-            <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
-            <br hidden>
-            <label>Route name:</label>
-            @Html.DisplayFor(model => model.Hike.Route.Name)
-            <br>
-            <label>Distance:</label>
-            @Html.DisplayFor(model => model.Hike.Route.Distance)
-            <br>
-            <label>Difficulty:</label>
-            @Html.DisplayFor(model => model.Hike.Route.Difficulty)
-            <br>
-         
-            <br>
-            <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
+
+    <dd class="col-sm-10">
+        <label>Hike name:</label>
+        @Html.DisplayFor(model => model.Hike.Name)
+    </dd>
+
+    <dd class="col-sm-10">
+        <label hidden>RouteId:</label>
+        <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
+        <br hidden>
+        <label>Route name:</label>
+        @Html.DisplayFor(model => model.Hike.Route.Name)
+        <br>
+        <label>Distance:</label>
+        @Html.DisplayFor(model => model.Hike.Route.Distance)
+        <br>
+        <label>Difficulty:</label>
+        @Html.DisplayFor(model => model.Hike.Route.Difficulty)
+        <br>
+
+        <br>
+        <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
             </textarea>
-            @foreach (var item in Model.Images)
-            {
-                <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
-                <td>@item.Description</td>
-            }
-            
-            
+        @foreach (var item in Model.Images)
+        {
+            <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
+            <td>@item.Description</td>
+        }
 
-        </dd>
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
-        <div id="map"></div>
-        <script type="text/javascript" src="~/js/HikeInfo.js"></script>
+
+    </dd>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
+
+    <div id="map"></div>
+    <script type="text/javascript" src="~/js/HikeInfo.js"></script>
 
     @* </dl> *@
 </div>

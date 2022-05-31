@@ -5,9 +5,12 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<br><br>
+<br><br>
 
-<h4>Hike</h4>
+<h1>Edit Hike</h1>
+
+@* <h4>Hike</h4> *@
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,7 +27,7 @@
                 <input asp-for="Hike.Route" class="form-control" />
                 <span asp-validation-for="Hike.Route" class="text-danger"></span>
             </div>
-            
+
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
@@ -37,5 +40,5 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
