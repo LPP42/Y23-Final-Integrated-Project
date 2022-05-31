@@ -30,7 +30,11 @@ a:hover {
 
 }
 
-#todoTable:hover {
+#todoTableItem:hover {
+  background-color: rgb(160, 218, 199);
+}
+
+#tr1 {
   background-color: rgb(160, 218, 199);
 }
 

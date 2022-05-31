@@ -6,60 +6,64 @@
 }
 
 <h1>Index</h1>
- <form>
-    @{ var val = !@Model.filterShow; }
+<form>
+    @{
+        var val = !@Model.filterShow; 
+    }
     <input type="hidden" asp-for="filterShow" value="@val" />
     <br>
-    <input class="filt" type="submit" title="Filter" value="Filters" >
+    <input class="filt" type="submit" title="Filter" value="Filters">
 </form>
 <form>
-    @{ var cal = !@Model.calShow; }
+    @{
+        var cal = !@Model.calShow; 
+    }
     <input type="hidden" asp-for="calShow" value="@cal" />
     <br>
-    <input class="filt" type="submit" title="Calendar" value="Show in Calendar View" >
+    <input class="filt" type="submit" title="Calendar" value="Show in Calendar View">
 </form>
 
-    @if (Model.filterShow)
-        {
-            <form id="searchMenu">
-                <div id=SearchMenuRight>
-                    Search Name:
-                    <input type="search" asp-for="SearchName" />
-                </div>
-                <div id=SearchMenuLeft>
-                    <p>Search by Difficulty:
-                        <select asp-for="DifficultyLevel">
-                            @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
-                            {
-                                <option value="@difficulty">
-                                    @difficulty
-                                </option>
-                            }
-                        </select>
-                    </p>
-                    <p>Search by Route Length:
-                        <select asp-for="LengthLevel">
-                            @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
-                            {
-                                <option value="@length">
-                                    @length
-                                </option>
-                            }
-                        </select>
-                    </p>
-                    Enable filters
-                    <input type="checkbox" asp-for="filterOn" checked="true" />
-                    <br>
-                    <input class="srch" type="submit" title="Search" value="Search" >
-                </div>
-            </form>
-        }
+@if (Model.filterShow)
+{
+    <form id="searchMenu">
+        <div id=SearchMenuRight>
+            Search Name:
+            <input type="search" asp-for="SearchName" />
+        </div>
+        <div id=SearchMenuLeft>
+            <p>Search by Difficulty:
+                <select asp-for="DifficultyLevel">
+                    @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
+                    {
+                        <option value="@difficulty">
+                            @difficulty
+                        </option>
+                    }
+                </select>
+            </p>
+            <p>Search by Route Length:
+                <select asp-for="LengthLevel">
+                    @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+                    {
+                        <option value="@length">
+                            @length
+                        </option>
+                    }
+                </select>
+            </p>
+            Enable filters
+            <input type="checkbox" asp-for="filterOn" checked="true" />
+            <br>
+            <input class="srch" type="submit" title="Search" value="Search">
+        </div>
+    </form>
+}
 <p>
     <a asp-page="Create">Create New</a>
 </p>
 <table class="table" id="todoTable">
     <thead>
-        <tr>
+        <tr id=todotableItem>
             <th>
                 Hike Id
             </th>
@@ -69,42 +73,43 @@
             <th>
                 Scheduled Date & Time
             </th>
-             <th>
+            <th>
                 Route Name
             </th>
 
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Hike) {
-        <tr class="trl">
-            <td>
-                @Html.DisplayFor(modelItem => item.HikeId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScheduledTime)
-            </td>
-            
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete</a>
-            </td>
-        </tr>
-}
- @if (Model.calShow)
-    {
-        <div class="calendarContainer">
-            <div id="calendar"></div>
-        </div>
-    }
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
-<script src="~/js/moment.js"></script>
-<script src="~/js/Calendar.js"></script>
+        @foreach (var item in Model.Hike)
+        {
+            <tr class="trl">
+                <td>
+                    @Html.DisplayFor(modelItem => item.HikeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScheduledTime)
+                </td>
+
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete</a>
+                </td>
+            </tr>
+        }
+        @if (Model.calShow)
+        {
+            <div class="calendarContainer">
+                <div id="calendar"></div>
+            </div>
+        }
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+        <script src="~/js/moment.js"></script>
+        <script src="~/js/Calendar.js"></script>
 
 
     </tbody>
