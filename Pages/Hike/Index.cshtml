@@ -61,56 +61,58 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table" id="todoTable">
-    <thead>
-        <tr id=todotableItem>
-            <th>
-                Hike Id
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hike[0].Name)
-            </th>
-            <th>
-                Scheduled Date & Time
-            </th>
-            <th>
-                Route Name
-            </th>
+<div id="hikeCalendar">
+    <table class="table" id="todoTable">
+        <thead>
+            <tr id=todotableItem>
+                <th>
+                    Hike Id
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hike[0].Name)
+                </th>
+                <th>
+                    Scheduled Date & Time
+                </th>
+                <th>
+                    Route Name
+                </th>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Hike)
-        {
-            <tr class="trl">
-                <td>
-                    @Html.DisplayFor(modelItem => item.HikeId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ScheduledTime)
-                </td>
-
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete</a>
-                </td>
             </tr>
-        }
-        @if (Model.calShow)
-        {
-            <div class="calendarContainer">
-                <div id="calendar"></div>
-            </div>
-        }
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
-        <script src="~/js/moment.js"></script>
-        <script src="~/js/Calendar.js"></script>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Hike)
+            {
+                <tr class="trl" id="hikeHover">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HikeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ScheduledTime)
+                    </td>
+
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete</a>
+                    </td>
+                </tr>
+            }
+            @if (Model.calShow)
+            {
+                <div class="calendarContainer">
+                    <div id="calendar"></div>
+                </div>
+            }
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>
+<script src="~/js/moment.js"></script>
+<script src="~/js/Calendar.js"></script>
 
 
-    </tbody>
+</tbody>
 </table>

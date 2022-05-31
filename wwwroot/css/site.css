@@ -30,11 +30,23 @@ a:hover {
 
 }
 
+#hikeCalendar {
+  display: flex;
+}
+
+#homeTitle {
+  color: black;
+}
+
 #todotableItem:hover {
+  background-color: rgb(243, 224, 202);
+}
+
+#calendar:hover {
   background-color: rgb(160, 218, 199);
 }
 
-.tr1:hover {
+#hikeHover:hover {
   background-color: rgb(160, 218, 199);
 }
 
