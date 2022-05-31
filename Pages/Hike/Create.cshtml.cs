@@ -31,17 +31,17 @@ namespace Lab3.Pages_Hike
 
         public IActionResult OnGet()
         {
-            // if (User.Identity.IsAuthenticated)
-            // {
-            //     _logger.Log(LogLevel.Information, "************************* User is Authenticated *************************");
-            // }
-            // else
-            // {
-            //     _logger.Log(LogLevel.Information, "************************* User is not Authenticated *************************");
-            // }
-
+            if (User.Identity.IsAuthenticated)
+            {
+                _logger.Log(LogLevel.Information, "************************* User is Authenticated *************************");                
             PopulateRouteList(_context);
             return Page();
+            }
+            else
+            {
+                _logger.Log(LogLevel.Information, "************************* User is not Authenticated *************************");
+            }            
+             return RedirectToPage("./Index");
         }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
