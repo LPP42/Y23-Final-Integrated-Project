@@ -3,7 +3,6 @@
 
 @inject SignInManager<HikeUser> SignInManager
 @inject UserManager<HikeUser> UserManager
-
 <ul class="navbar-nav">
 	@if (SignInManager.IsSignedIn(User))
 	{

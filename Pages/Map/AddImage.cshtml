@@ -4,15 +4,14 @@
     ViewData["Title"] = "Add an Image";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-
 <h1>Add an image</h1>
 <form method="post" enctype="multipart/form-data">
     <div>
-    <label asp-for="image.Route" class="control-label"></label>
-                <select asp-for="image.RouteId" class="form-control" asp-items="@Model.RouteNameSL">
-                    <option value="">-- Select Route --</option>
-                </select>
-                <span asp-validation-for="image.RouteId" class="text-danger" />
+        <label asp-for="image.Route" class="control-label"></label>
+        <select asp-for="image.RouteId" class="form-control" asp-items="@Model.RouteNameSL">
+            <option value="">-- Select Route --</option>
+        </select>
+        <span asp-validation-for="image.RouteId" class="text-danger" />
     </div>
     @* Route Id:<input id="Text1" type="text" asp-for="image.Route.RouteId" /><br /> *@
     choose file:<input id="file" type="file" asp-for="fileImg" /><br />
