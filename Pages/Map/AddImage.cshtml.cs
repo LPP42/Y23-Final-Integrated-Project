@@ -56,7 +56,7 @@ namespace Lab3.Pages_Map
                 newImage.Route=image.Route;
                 _context.Image.Add(newImage);
                 await _context.SaveChangesAsync();
-                return RedirectToPage("../Map/Map");
+                return RedirectToPage("../Map/AddImageConfirm");
             }
 
             // Select DepartmentID if TryUpdateModelAsync fails.

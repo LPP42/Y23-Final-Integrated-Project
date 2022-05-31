@@ -20,6 +20,9 @@ body {
   background-size: auto;
   background-repeat: repeat;
 }
+header {
+  margin-bottom: 100px;
+}
 
 a {
   text-decoration: none;

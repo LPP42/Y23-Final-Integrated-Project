@@ -11,7 +11,7 @@ using Lab3.Models;
 
 namespace Lab3.Pages_Hike
 {
-    public class EditModel : PageModel
+    public class EditModel : RouteCallerPageModel
     {
         private readonly StoreDBContext _context;
 
@@ -22,16 +22,19 @@ namespace Lab3.Pages_Hike
 
         [BindProperty]
         public Hike Hike { get; set; }
+        [BindProperty]
+        public Lab3.Models.Route Route { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            
             if (id == null)
             {
                 return NotFound();
             }
 
             Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
-
+            PopulateRouteList(_context);
             if (Hike == null)
             {
                 return NotFound();
@@ -65,7 +68,7 @@ namespace Lab3.Pages_Hike
                     throw;
                 }
             }
-
+            
             return RedirectToPage("./Index");
         }
 
