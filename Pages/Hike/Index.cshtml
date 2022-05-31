@@ -8,7 +8,7 @@
 <h1>Index</h1>
 <form>
     @{
-        var val = !@Model.filterShow; 
+        var val = !@Model.filterShow;
     }
     <input type="hidden" asp-for="filterShow" value="@val" />
     <br>
@@ -16,7 +16,7 @@
 </form>
 <form>
     @{
-        var cal = !@Model.calShow; 
+        var cal = !@Model.calShow;
     }
     <input type="hidden" asp-for="calShow" value="@cal" />
     <br>
