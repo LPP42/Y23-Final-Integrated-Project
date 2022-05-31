@@ -11,5 +11,6 @@ public class Image
 	public string? Description { get; set; }
 	public string? File { get; set; } 
 	public virtual Route? Route {get;set;}
+	public int RouteId { get; set; }
 	
 }

@@ -32,6 +32,12 @@
             <br>
             <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
             </textarea>
+            @foreach (var item in Model.Images)
+            {
+                <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
+                <td>@item.Description</td>
+            }
+            
             
 
         </dd>

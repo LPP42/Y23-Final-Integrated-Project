@@ -12,5 +12,25 @@
 <br>
 <label>Give this route a name:</label>
 <input type="text" id="routeName">
+<p>Select Difficulty Level:
+    <select asp-for="DifficultyLevel" id="difBox">
+        @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
+        {
+            <option value="@difficulty">
+                @difficulty
+            </option>
+        }
+    </select>
+</p>
+<p>Select Route Length:
+    <select asp-for="LengthLevel" id="lenBox">
+        @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+        {
+            <option value="@length">
+                @length
+            </option>
+        }
+    </select>
+</p>
 <div id="map"></div>
 <script type="text/javascript" src="~/js/Map.js"></script>
