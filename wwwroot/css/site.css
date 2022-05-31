@@ -13,8 +13,13 @@ html {
   min-height: 100%;
 }
 
+header {
+  margin-bottom: 100px;
+}
+
 body {
   margin-bottom: 60px;
+  background-color: beige;
   /* background-image: url("../images/background2-1.jpg"); */
   /* background-image: url("../images/leaves.jpg"); */
   background-size: auto;
@@ -110,9 +115,43 @@ h1:hover {
 
 }
 
+#ScheduledHike {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+}
+
+#scheduledHikeRow:hover {
+  background-color: rgb(160, 218, 199);
+  ;
+}
 
 #hikeCalendar {
   display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+  /* margin-left: 100px; */
+}
+
+#hikeDiv {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+
+
+}
+
+#calendar {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+  margin-right: 30px;
+
 }
 
 #homeTitle {

@@ -4,10 +4,6 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<br><br>
-<br><br>
-
 <h1>Hike Information</h1>
 <form>
     @{
@@ -64,8 +60,11 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+<div id="hikeDiv"></div>
 <div id="hikeCalendar">
+
     <table class="table" id="todoTable">
+
         <thead>
             <tr id=todotableItem>
                 <th>
@@ -104,7 +103,18 @@
                     </td>
                 </tr>
             }
+<<<<<<< HEAD
  
+=======
+</div>
+@* <div id="calendarBox"> *@
+@if (Model.calShow)
+{
+    <div class="calendarContainer">
+        <div id="calendar"></div>
+    </div>
+}
+>>>>>>> 64d059bf6c638f5a9bd7e790bef583376d04c2a3
 </div>
 @* @if (Model.calShow)
 { *@
