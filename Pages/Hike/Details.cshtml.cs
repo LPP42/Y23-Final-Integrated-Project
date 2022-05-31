@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,6 +16,7 @@ namespace Lab3.Pages_Hike
     public class DetailsModel : PageModel
     {
         private readonly StoreDBContext _context;
+         private readonly UserManager<HikeUser> _userManager;
 
         public DetailsModel(StoreDBContext context)
         {

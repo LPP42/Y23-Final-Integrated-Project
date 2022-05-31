@@ -59,8 +59,8 @@ namespace Lab3.Pages_Hike
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            // if (User.Identity.IsAuthenticated)
-            // {
+            if (User.Identity.IsAuthenticated)
+            {
                 if (!ModelState.IsValid)
                 {
                     return Page();
@@ -83,7 +83,7 @@ namespace Lab3.Pages_Hike
                         throw;
                     }
                 }
-            // }
+            }
             return RedirectToPage("./Index");
         }
 
