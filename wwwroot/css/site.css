@@ -114,6 +114,7 @@ h1:hover {
 
 #hikeCalendar {
   display: flex;
+  /* margin-left: 100px; */
 }
 
 #homeTitle {
