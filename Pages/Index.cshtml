@@ -5,29 +5,28 @@
 
 @inject SignInManager<HikeUser> SignInManager
 @inject UserManager<HikeUser> UserManager
-@{
-	ViewData["Title"] = "Home page";
 
-	ViewBag.message = "hello";
-}
+
 <div class="text-center">
-
-	<h1 id="homeTitle" class="display-4">Welcome to Hike Planner🚶‍♂️ @Model.UserEmail </h1>
-	@* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+	<h1 id="homeTitle" class="display-4">Hike Planner</h1>
 </div>
-<div class="msg">
-	<div class="ticker">
-		<div class="title">
+
+@*
+<div class="msg"> 
+	 <div class="ticker"> 
+		 <div class="title">
 			<h5>Warning Message</h5>
-		</div>
-		<div class="news">
+			</div> 
+		 <div class="news">
 			<marquee id="marquee">
 
 			</marquee>
-		</div>
-	</div>
-</div>
-<br><br>
+			</div> 
+	 </div> 
+ </div>
+ *@
+
+@*
 <div id="messageArea">
 	<h3>Create your Warning Message Here!</h3>
 	<input type="text" id="warningMessage" placeholder="Enter Warning Message" />
@@ -46,6 +45,8 @@
 		<embed src=" css/mp3/warningSound.mp3" />
 	</div>
 </div>
+*@
+
 <script type="text/javascript" src="~/js/marquee.js"></script>
 <br><br>
 <div id="about">
