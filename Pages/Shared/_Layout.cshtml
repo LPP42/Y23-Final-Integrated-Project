@@ -7,7 +7,7 @@
 	<title>@ViewData["Title"] - Hike Planner</title>
 	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-	<link rel="stylesheet" href="~/Lab3.styles.css" asp-append-version="true" />
+	@* <link rel="stylesheet" href="~/Lab3.styles.css" asp-append-version="true" /> *@
 
 </head>
 
@@ -26,20 +26,23 @@
 					<ul class="navbar-nav flex-grow-1">
 						<li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-page="/Index">
-								<img src="~/images/home1.jpg" />
+								@* <img src="~/images/home1.jpg" /> *@
+								Home
 							</a>
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-page="/Hike/Index"><img
-									src="~/images/hike-icon1.jpg" /></a>
+							<a class="nav-link text-dark" asp-area="" asp-page="/Hike/Index">
+								@* <img src="~/images/hike-icon1.jpg" /> *@
+								Hikes
+							</a>
 						</li>
 						@* <li class="nav-item">
 							<a class="nav-link text-dark" asp-area="" asp-page="/User/Index">Profile</a>
 							</li> *@
 						<li class="nav-item">
-							<a class="nav-link text-dark" asp-area="" asp-page="/Map/Map"><img
-									src="~/images/map-icon1.jpg" />
+							<a class="nav-link text-dark" asp-area="" asp-page="/Map/Map">
+								Map
 							</a>
 						</li>
 						<li class="nav-item">
