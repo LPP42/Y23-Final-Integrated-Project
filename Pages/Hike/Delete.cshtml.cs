@@ -58,8 +58,17 @@ namespace Lab3.Pages_Hike
             hikers = hikers.Where(p => p.Hike ==  Hike);
             Hiker = await hikers.ToListAsync();
 
-            if (Hike != null && Hiker.Count == 0)
+            if (Hike != null)
             {
+                if (Hiker.Count != 0)
+                {
+                    foreach (var item in Hiker)
+                    {
+                        _context.Signup.Remove(item);
+                    }
+                    await _context.SaveChangesAsync();
+                
+                }
                 _context.Hike.Remove(Hike);
                 //await _context.SaveChangesAsync();
                 
