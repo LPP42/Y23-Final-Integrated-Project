@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +15,15 @@ namespace Lab3.Pages_Hike
     public class IndexModel : PageModel
     {
         private readonly StoreDBContext _context;
+        private readonly UserManager<HikeUser> _userManager;
 
-        public IndexModel(StoreDBContext context)
+        public IndexModel(StoreDBContext context, UserManager<HikeUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
         }
 
-        public IList<Hike> Hike { get;set; }
+        public IList<Hike> Hike { get; set; }
         [BindProperty(SupportsGet = true)]
         public bool filterShow { get; set; }
         [BindProperty(SupportsGet = true)]
@@ -47,17 +51,17 @@ namespace Lab3.Pages_Hike
                 // filter by difficulty
                 if (DifficultyLevel != null)
                 {
-                    hikes = hikes.Where(p => p.Route.Difficulty ==  DifficultyLevel);
+                    hikes = hikes.Where(p => p.Route.Difficulty == DifficultyLevel);
                 }
 
                 // filter by distance
                 if (LengthLevel != null)
                 {
-                    hikes = hikes.Where(p => p.Route.Distance ==  LengthLevel);
+                    hikes = hikes.Where(p => p.Route.Distance == LengthLevel);
                 }
 
             }
-            
+
             Hike = await hikes.ToListAsync();
         }
     }

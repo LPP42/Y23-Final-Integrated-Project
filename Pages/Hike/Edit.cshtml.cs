@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -14,10 +16,14 @@ namespace Lab3.Pages_Hike
     public class EditModel : RouteCallerPageModel
     {
         private readonly StoreDBContext _context;
+        private readonly UserManager<HikeUser> _userManager;
+        private readonly ILogger<IndexModel> _logger;
 
-        public EditModel(StoreDBContext context)
+        public EditModel(StoreDBContext context, ILogger<IndexModel> logger, UserManager<HikeUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         [BindProperty]
@@ -27,48 +33,59 @@ namespace Lab3.Pages_Hike
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
-            PopulateRouteList(_context);
-            if (Hike == null)
+            if (User.Identity.IsAuthenticated)
             {
-                return NotFound();
+                _logger.Log(LogLevel.Information, "************************* User is Authenticated *************************");
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
+
+                if (Hike == null)
+                {
+                    return NotFound();
+                }
+                return Page();
             }
-            return Page();
+            else
+            {
+                _logger.Log(LogLevel.Information, "************************* User is NOT Authenticated *************************");
+                return RedirectToPage("./Index");
+            }
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
+            if (User.Identity.IsAuthenticated)
             {
-                return Page();
-            }
-
-            _context.Attach(Hike).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!HikeExists(Hike.HikeId))
+                if (!ModelState.IsValid)
                 {
-                    return NotFound();
+                    return Page();
                 }
-                else
+
+                _context.Attach(Hike).State = EntityState.Modified;
+
+                try
                 {
-                    throw;
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!HikeExists(Hike.HikeId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
-            
             return RedirectToPage("./Index");
         }
 
