@@ -1,3 +1,4 @@
+
 #nullable disable
 using System;
 using System.Collections.Generic;
@@ -21,8 +22,8 @@ namespace Lab3.Pages_Hike
 
         public EditModel(StoreDBContext context, ILogger<IndexModel> logger, UserManager<HikeUser> userManager)
         {
-            _context = context;
             _userManager = userManager;
+            _context = context;
             _logger = logger;
         }
 
@@ -33,28 +34,21 @@ namespace Lab3.Pages_Hike
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-
             if (User.Identity.IsAuthenticated)
             {
-                _logger.Log(LogLevel.Information, "************************* User is Authenticated *************************");
                 if (id == null)
                 {
                     return NotFound();
                 }
 
                 Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
-
+                PopulateRouteList(_context);
                 if (Hike == null)
                 {
                     return NotFound();
                 }
-                return Page();
             }
-            else
-            {
-                _logger.Log(LogLevel.Information, "************************* User is NOT Authenticated *************************");
-                return RedirectToPage("./Index");
-            }
+            return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
