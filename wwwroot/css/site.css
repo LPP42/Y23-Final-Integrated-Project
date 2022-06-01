@@ -11,10 +11,11 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  
 }
 
 body {
-  margin-bottom: 60px;
+  margin-bottom: 0px;
   background-color: rgb(255, 170, 60);
   background-image: url("../images/HomePageBackGround.jpg");
   background-repeat: no-repeat;
@@ -180,7 +181,7 @@ h1{
   border-radius: 5px; */
   text-align: center;
   background-color: rgb(255, 170, 60);
-  bottom: 1%;
+  bottom: 0%;
   width: 100%;
 }
 
