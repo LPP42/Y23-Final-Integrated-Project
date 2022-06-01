@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +17,15 @@ namespace Lab3.Controllers;
 public class RouteController : ControllerBase
 {
     private readonly StoreDBContext _context;
-    
-    private readonly ILogger<RouteController> _logger;
 
-    public RouteController(StoreDBContext context , ILogger<RouteController> logger)
+    private readonly ILogger<RouteController> _logger;
+    private readonly UserManager<HikeUser> _userManager;
+
+    public RouteController(StoreDBContext context, ILogger<RouteController> logger, UserManager<HikeUser> userManager)
     {
         _context = context;
-         _logger = logger;
+        _logger = logger;
+        _userManager = userManager;
     }
 
     // GET: api/Route
@@ -46,11 +50,16 @@ public class RouteController : ControllerBase
 
     // POST: api/Route
     [HttpPost]
+
     public async Task<ActionResult<Lab3.Models.Route>> PostRoute(Lab3.Models.Route Route)
     {
-        _context.Route.Add(Route);
-        await _context.SaveChangesAsync();
-        return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
+        if (User.Identity.IsAuthenticated)
+        {
+            _context.Route.Add(Route);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetRoute), new { id = Route.RouteId }, Route);
+        }
+        return null;
     }
 }
 

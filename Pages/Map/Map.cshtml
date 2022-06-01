@@ -1,34 +1,45 @@
 @page
 @model Lab3.Pages_Map.MapModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<HikeUser> UserManager
 @using Lab3
+
 
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
-<button class="btns" id="BtnSaveRoute">Save Route</button>
-<br>
-<label>Give this route a name:</label>
-<input type="text" id="routeName">
-<p>Select Difficulty Level:
-    <select asp-for="DifficultyLevel" id="difBox">
-        @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
+<div id="mapRouteDisplay">
+    <div id="mapRoute">
+        @if (UserManager.GetUserName(User) != null)
         {
-            <option value="@difficulty">
-                @difficulty
-            </option>
+            <button class="btns" id="BtnSaveRoute">Save Route</button>
+            <br>
+            <label>Give this route a name:</label>
+            <input type="text" id="routeName">
+            <p>Select Difficulty Level:
+                <select asp-for="DifficultyLevel" id="difBox">
+                    @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
+                    {
+                        <option value="@difficulty">
+                            @difficulty
+                        </option>
+                    }
+                </select>
+            </p>
+            <p>Select Route Length:
+                <select asp-for="LengthLevel" id="lenBox">
+                    @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+                    {
+                        <option value="@length">
+                            @length
+                        </option>
+                    }
+                </select>
+            </p>
         }
-    </select>
-</p>
-<p>Select Route Length:
-    <select asp-for="LengthLevel" id="lenBox">
-        @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
-        {
-            <option value="@length">
-                @length
-            </option>
-        }
-    </select>
-</p>
-<div id="map"></div>
+    </div>
+    <div id="map"></div>
+</div>
+
 <script type="text/javascript" src="~/js/Map.js"></script>

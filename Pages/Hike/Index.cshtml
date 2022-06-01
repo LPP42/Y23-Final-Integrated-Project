@@ -1,5 +1,7 @@
 @page
+@using Microsoft.AspNetCore.Identity
 @model Lab3.Pages_Hike.IndexModel
+@inject UserManager<HikeUser> UserManager
 
 @{
     ViewData["Title"] = "Index";
@@ -61,9 +63,15 @@
         </div>
     </form>
 }
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+@if (UserManager.GetUserName(User) != null)
+{
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+}
+
+
 <div id="hikeCalendar">
     <table class="table" id="todoTable">
         <thead>
@@ -98,19 +106,25 @@
                     </td>
 
                     <td>
-                        <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete</a>
+                        <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a>
+                        @if (UserManager.GetUserName(User) != null)
+                        {
+                            <label>|</label>
+                            <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit </a> <label>|</label>
+                            <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete </a> <label>|</label>
+                        }
                     </td>
+
+
                 </tr>
             }
  
 </div>
 @* @if (Model.calShow)
-{ *@
-    <div class="calendarContainer">
-        <div id="calendar"></div>
-    </div>
+    { *@
+<div class="calendarContainer">
+    <div id="calendar"></div>
+</div>
 @* } *@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.js"></script>

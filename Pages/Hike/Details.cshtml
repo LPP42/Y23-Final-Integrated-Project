@@ -1,19 +1,26 @@
 @page
 @model Lab3.Pages_Hike.DetailsModel
-@*
-    @{
-    ViewData["Title"] = "Details";
-    } *@
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<HikeUser> UserManager
+
+
 <h1>Hike Details</h1>
+<<<<<<< HEAD
 <table id="hikedet">
     <td width="40%">
     @* <dl class="row"> *@
+=======
+<div id="hikeDetails">
+    <div>
 
-    <dd class="col-sm-10">
-        <label>Hike name:</label>
-        @Html.DisplayFor(model => model.Hike.Name)
-    </dd>
+<div>
+>>>>>>> 6e676eeeade2cd26664705243fb600498a426058
 
+        @* <dl class="row"> *@
+        <div id="hikeInfo">
+            <dd class="col-sm-10">
+
+<<<<<<< HEAD
     <dd class="col-sm-10">
         <label hidden>RouteId:</label>
         <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
@@ -74,6 +81,38 @@
 
 
 
+=======
+                <label>Hike name:</label>
+                @Html.DisplayFor(model => model.Hike.Name)
+            </dd>
+
+            <dd class="col-sm-10">
+                <label hidden>RouteId:</label>
+                <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
+                <br hidden>
+                <label>Route name:</label>
+                @Html.DisplayFor(model => model.Hike.Route.Name)
+                <br>
+                <label>Distance:</label>
+                @Html.DisplayFor(model => model.Hike.Route.Distance)
+                <br>
+                <label>Difficulty:</label>
+                @Html.DisplayFor(model => model.Hike.Route.Difficulty)
+        </div><br>
+        <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
+            </textarea>
+        <div id="imgsDetails">@foreach (var item in Model.Images)
+            {
+                <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
+                <td>@item.Description</td>
+            }
+        </div>
+
+
+
+        </dd>
+    </div>
+>>>>>>> 6e676eeeade2cd26664705243fb600498a426058
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -82,33 +121,46 @@
 
     @* </dl> *@
 </div>
-<table class="table" id="todoTable">
-    <thead>
-        <tr>List of Signed Up Hikers</tr>
-        <tr>
-            <th>
-                User Name
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Hiker)
-        {
-            <tr class="trl">
-                @* <td>
-                    @Html.DisplayFor(modelItem => item.HikeId)
-                    </td> *@
-                <td>
-                    @Html.DisplayFor(modelItem => item.HikeUser.UserName)
-                </td>
+<div id="users">
+    <table class="table" id="todoTable">
+        <thead>
+            <tr>List of Signed Up Hikers</tr>
+            <tr>
+                <th>
+                    User Name
+                </th>
             </tr>
+<<<<<<< HEAD
         }
         <script src="~/js/Slider.js"></script>
     </tbody>
 </table>
+=======
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Hiker)
+            {
+                <tr id="userHover" class="trl">
+                    @* <td>
+                        @Html.DisplayFor(modelItem => item.HikeId)
+                        </td> *@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HikeUser.UserName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+>>>>>>> 6e676eeeade2cd26664705243fb600498a426058
 
 <div>
-    <a asp-page="../Signup/Add" asp-route-id="@Model.Hike.HikeId">Sign Up for This Hike</a> |
-    <a asp-page="./Edit" asp-route-id="@Model.Hike.HikeId">Edit</a> |
+
+    @if (UserManager.GetUserName(User) != null)
+    {
+        <a asp-page="../Signup/Add" asp-route-id="@Model.Hike.HikeId">Sign Up for This Hike</a> <label>|</label>
+        <a asp-page="./Edit" asp-route-id="@Model.Hike.HikeId">Edit</a> <label>|</label>
+    }
+
+
     <a asp-page="./Index">Back to List</a>
 </div>
