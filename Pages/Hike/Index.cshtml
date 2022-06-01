@@ -6,22 +6,23 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div id="calendar-page">
+<h1 class="view-hikes">View Upcomming Hikes</h1>
+<div class="hikes-page-content">
 
-    <h1 >View Upcomming Hikes</h1>
+   <div class="search-menu">
     <form>
         @{
             var val = !@Model.filterShow;
         }
         <input type="hidden" asp-for="filterShow" value="@val" />
         <br>
-        <input class="filt" type="submit" title="Filter" value="Filters">
+        <input class="filt" type="submit" title="Filter" value="Show Filters">
     </form>
 
 
     @if (Model.filterShow)
     {
-        <form id="searchMenu">
+        <form id="">
             <div id=SearchMenuRight>
                 Search Name:
                 <input type="search" asp-for="SearchName" />
@@ -54,6 +55,7 @@
             </div>
         </form>
     }
+    </div> 
 
     @if (UserManager.GetUserName(User) != null)
     {
@@ -113,7 +115,6 @@
     <div class="calendarContainer">
         <div id="calendar"></div>
     </div>
-
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
