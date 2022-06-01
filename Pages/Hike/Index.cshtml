@@ -6,6 +6,10 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+<br><br>
+<br><br>
+
 <h1>Hike Information</h1>
 <form>
     @{
@@ -15,14 +19,14 @@
     <br>
     <input class="filt" type="submit" title="Filter" value="Filters">
 </form>
-<form>
+@* <form>
     @{
         var cal = !@Model.calShow;
     }
     <input type="hidden" asp-for="calShow" value="@cal" />
     <br>
     <input class="filt" type="submit" title="Calendar" value="Show in Calendar View">
-</form>
+</form> *@
 
 @if (Model.filterShow)
 {
@@ -69,9 +73,7 @@
 
 
 <div id="hikeCalendar">
-
     <table class="table" id="todoTable">
-
         <thead>
             <tr id=todotableItem>
                 <th>
@@ -116,14 +118,7 @@
 
                 </tr>
             }
-</div>
-@* <div id="calendarBox"> *@
-@if (Model.calShow)
-{
-    <div class="calendarContainer">
-        <div id="calendar"></div>
-    </div>
-}
+ 
 </div>
 @* @if (Model.calShow)
     { *@

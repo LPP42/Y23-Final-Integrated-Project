@@ -21,7 +21,7 @@ namespace Lab3.Pages_Hike
 
         [BindProperty]
         public Hike Hike { get; set; }
-
+        public IList<Signup> Hiker { get;set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -30,10 +30,18 @@ namespace Lab3.Pages_Hike
             }
 
             Hike = await _context.Hike.FirstOrDefaultAsync(m => m.HikeId == id);
-
+            var hikers = from p in _context.Signup select p;
+            hikers = hikers.Where(p => p.Hike ==  Hike);
+            Hiker = await hikers.ToListAsync();
             if (Hike == null)
             {
                 return NotFound();
+            }
+            
+            if (Hike != null && Hiker.Count != 0)
+            {
+               TempData["msg"] = "<script>alert('There are people signed up! We have to inform them before removing this hike!');</script>";
+               
             }
             return Page();
         }
@@ -46,13 +54,21 @@ namespace Lab3.Pages_Hike
             }
 
             Hike = await _context.Hike.FindAsync(id);
+            var hikers = from p in _context.Signup select p;
+            hikers = hikers.Where(p => p.Hike ==  Hike);
+            Hiker = await hikers.ToListAsync();
 
-            if (Hike != null)
+            if (Hike != null && Hiker.Count == 0)
             {
                 _context.Hike.Remove(Hike);
-                await _context.SaveChangesAsync();
+                //await _context.SaveChangesAsync();
+                
+            } else if (Hike != null && Hiker.Count != 0)
+            {
+               TempData["msg"] = "<script>alert('There are people signed up! We have to inform them before removing this hike!');</script>";
+               
             }
-
+            await _context.SaveChangesAsync();
             return RedirectToPage("./Index");
         }
     }
