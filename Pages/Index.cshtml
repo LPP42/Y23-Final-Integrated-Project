@@ -5,69 +5,71 @@
 
 @inject SignInManager<HikeUser> SignInManager
 @inject UserManager<HikeUser> UserManager
-@{
-	ViewData["Title"] = "Home page";
 
-	ViewBag.message = "hello";
-}
+
 <div class="text-center">
-
-	<h1 id="homeTitle" class="display-4">Welcome to Hike Planner🚶‍♂️ @Model.UserEmail </h1>
-	@* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+	<h1 id="homeTitle" class="display-4">Hike Planner</h1>
 </div>
-<div class="msg">
+
+@*
+	<div class="msg">
 	<div class="ticker">
-		<div class="title">
-			<h5>Warning Message</h5>
-		</div>
-		<div class="news">
-			<marquee id="marquee">
-
-			</marquee>
-		</div>
+	<div class="title">
+	<h5>Warning Message</h5>
 	</div>
-</div>
-<br><br>
-<div id="messageArea">
+	<div class="news">
+	<marquee id="marquee">
+
+	</marquee>
+	</div>
+	</div>
+	</div>
+*@
+
+@*
+	<div id="messageArea">
 	<h3>Create your Warning Message Here!</h3>
 	<input type="text" id="warningMessage" placeholder="Enter Warning Message" />
 	<div>
-		<style>
-			embed {
-				display: none;
-			}
+	<style>
+	embed {
+	display: none;
+	}
 
-			button:active+embed {
-				display: block;
-			}
-		</style>
-		<br>
-		<button class="btns" id="sendBtn">Send</button>
-		<embed src=" css/mp3/warningSound.mp3" />
+	button:active+embed {
+	display: block;
+	}
+	</style>
+	<br>
+	<button class="btns" id="sendBtn">Send</button>
+	<embed src=" css/mp3/warningSound.mp3" />
 	</div>
-</div>
-<script type="text/javascript" src="~/js/marquee.js"></script>
-<br><br>
+	</div>
+*@
+
+@* <script type="text/javascript" src="~/js/marquee.js"></script> *@
+
+
 <div id="about">
-	<div id="aboutParagraph">
-		<p id="aboutTitle">Who We Are</p>
-		<br><br>
-		<p>Hike Planner is the world’s #1 active hiking company. Since 1979, we’ve been doing what we do best:
-			taking people on unforgettable active hikes around Ottawa-Gatineau area. What sets us apart? Our thoughtful,
-			meticulous hike design. Our elegant ideas and world-class gathering. And our Hike Leaders, who are
-			consistently
-			described by our guests as the best guides they’ve ever had. Hike Planner sets the benchmark for incredible
-			biking,
-			hiking and multi-adventure hikes Ottawa-Gatinea area wide. Never subcontracted, in more than 65 hike areas
-			and
-			with more dates to
-			choose from than any other company. That’s the Hike Planner standard.</p>
-		<br>
-		<img src="css/mp3/hiking.jpg" />
-	</div>
-	<br><br>
-	<div id="aboutVideo">
-		<iframe height="500" width="1150" src="https://www.youtube.com/embed/lES6UT0ZE0M">
-		</iframe>
-	</div>
+	@* <div id="aboutParagraph"> *@
+	<p id="aboutTitle">Who We Are</p>
+	@* <br><br> *@
+	<p>Hike Planner is the world’s #1 active hiking company. Since 1979, we’ve been doing what we do best:
+		taking people on unforgettable active hikes around Ottawa-Gatineau area. What sets us apart? Our thoughtful,
+		meticulous hike design. Our elegant ideas and world-class gathering. And our Hike Leaders, who are
+		consistently
+		described by our guests as the best guides they’ve ever had. Hike Planner sets the benchmark for incredible
+		biking,
+		hiking and multi-adventure hikes Ottawa-Gatinea area wide. Never subcontracted, in more than 65 hike areas
+		and
+		with more dates to
+		choose from than any other company. That’s the Hike Planner standard.</p>
+	@* <br> *@
+</div>
+@* <img src="css/mp3/hiking.jpg" /> *@
+@* </div> *@
+@* <br><br> *@
+
+<div id="aboutVideo">
+	<iframe height="500" width="1150" src="https://www.youtube.com/embed/lES6UT0ZE0M"></iframe>
 </div>
