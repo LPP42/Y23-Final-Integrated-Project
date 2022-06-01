@@ -6,112 +6,114 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div id="calendar-page">
 
-
-<h1>View Upcomming Hikes</h1>
-<form>
-    @{
-        var val = !@Model.filterShow;
-    }
-    <input type="hidden" asp-for="filterShow" value="@val" />
-    <br>
-    <input class="filt" type="submit" title="Filter" value="Filters">
-</form>
-
-
-@if (Model.filterShow)
-{
-    <form id="searchMenu">
-        <div id=SearchMenuRight>
-            Search Name:
-            <input type="search" asp-for="SearchName" />
-        </div>
-        <div id=SearchMenuLeft>
-            <p>Search by Difficulty:
-                <select asp-for="DifficultyLevel">
-                    @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
-                    {
-                        <option value="@difficulty">
-                            @difficulty
-                        </option>
-                    }
-                </select>
-            </p>
-            <p>Search by Route Length:
-                <select asp-for="LengthLevel">
-                    @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
-                    {
-                        <option value="@length">
-                            @length
-                        </option>
-                    }
-                </select>
-            </p>
-            Enable filters
-            <input type="checkbox" asp-for="filterOn" checked="true" />
-            <br>
-            <input class="srch" type="submit" title="Search" value="Search">
-        </div>
+    <h1 >View Upcomming Hikes</h1>
+    <form>
+        @{
+            var val = !@Model.filterShow;
+        }
+        <input type="hidden" asp-for="filterShow" value="@val" />
+        <br>
+        <input class="filt" type="submit" title="Filter" value="Filters">
     </form>
-}
-
-@if (UserManager.GetUserName(User) != null)
-{
-    <p>
-        <a asp-page="Create">Create New</a>
-    </p>
-}
 
 
-<div id="hikeCalendar">
-    <table class="table" id="todoTable">
-        <thead>
-            <tr id=todotableItem>
-                <th>
-                    Hike Id
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Hike[0].Name)
-                </th>
-                <th>
-                    Scheduled Date & Time
-                </th>
-                <th>
-                    Route Name
-                </th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Hike)
-            {
-                <tr class="trl" id="hikeHover">
-                    <td>
-                        @Html.DisplayFor(modelItem => item.HikeId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ScheduledTime)
-                    </td>
-
-                    <td>
-                        <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a>
-
-                        @if (UserManager.GetUserName(User) != null)
+    @if (Model.filterShow)
+    {
+        <form id="searchMenu">
+            <div id=SearchMenuRight>
+                Search Name:
+                <input type="search" asp-for="SearchName" />
+            </div>
+            <div id=SearchMenuLeft>
+                <p>Search by Difficulty:
+                    <select asp-for="DifficultyLevel">
+                        @foreach (var difficulty in Enum.GetValues(typeof(RouteDifficultyLevel)))
                         {
-                            <label>|</label>
-                            <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit </a> <label>|</label>
-                            <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete </a> <label>|</label>
+                            <option value="@difficulty">
+                                @difficulty
+                            </option>
                         }
-                    </td>
-                </tr>
-            }
-</div>
+                    </select>
+                </p>
+                <p>Search by Route Length:
+                    <select asp-for="LengthLevel">
+                        @foreach (var length in Enum.GetValues(typeof(RouteLengthLevel)))
+                        {
+                            <option value="@length">
+                                @length
+                            </option>
+                        }
+                    </select>
+                </p>
+                Enable filters
+                <input type="checkbox" asp-for="filterOn" checked="true" />
+                <br>
+                <input class="srch" type="submit" title="Search" value="Search">
+            </div>
+        </form>
+    }
 
-<div class="calendarContainer">
-    <div id="calendar"></div>
+    @if (UserManager.GetUserName(User) != null)
+    {
+        <p>
+            <a id="create-hike" asp-page="Create">Create New</a>
+        </p>
+    }
+
+
+    <div id="hikeCalendar">
+        <table class="table" id="todoTable">
+            <thead>
+                <tr id=todotableItem>
+                    <th>
+                        Hike Id
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Hike[0].Name)
+                    </th>
+                    <th>
+                        Scheduled Date & Time
+                    </th>
+                    <th>
+                        Route Name
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Hike)
+                {
+                    <tr class="trl" id="hikeHover">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.HikeId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ScheduledTime)
+                        </td>
+
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a>
+
+                            @if (UserManager.GetUserName(User) != null)
+                            {
+                                <label>|</label>
+                                <a asp-page="./Edit" asp-route-id="@item.HikeId">Edit </a> <label>|</label>
+                                <a asp-page="./Delete" asp-route-id="@item.HikeId">Delete </a> <label>|</label>
+                            }
+                        </td>
+                    </tr>
+                }
+    </div>
+
+    <div class="calendarContainer">
+        <div id="calendar"></div>
+    </div>
+
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.1.0/main.min.css">
