@@ -13,6 +13,23 @@ html {
   min-height: 100%;
 }
 
+h1 {
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s; */
+  /* border-bottom-style: dashed;
+  border-top-style: dashed; */
+  border-style: double;
+  border-end-start-radius: 100px;
+  border-end-end-radius: 100px;
+  border-width: 10px;
+  border-color: black;
+  padding-left: 10px;
+  width: 800px;
+  height: 100px;
+  background-color: rgba(195, 198, 228, 0.35);
+  text-align: center;
+}
+
 body {
   margin-bottom: 60px;
   background-color: rgb(255, 170, 60);
@@ -24,6 +41,7 @@ body {
 header {
   margin-bottom: 100px;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -35,7 +53,7 @@ header {
 
 .mySlides {
   display: none;
-  
+
 }
 
 .cursor {
@@ -85,8 +103,9 @@ header {
   float: left;
   width: 16.66%;
 }
+
 .grow {
-  display:none;
+  display: none;
 }
 
 .demo {
@@ -106,7 +125,7 @@ a:hover {
   text-decoration: underline;
 }
 
-.nav-link{
+.nav-link {
   color: white !important;
   font-size: 18pt;
 }
@@ -128,7 +147,7 @@ a:hover {
   background-color: rgba(246, 237, 237, 0.747);
 } */
 
-h1{
+h1 {
   margin-top: 10%;
   font-size: 40pt !important;
 }
@@ -242,7 +261,9 @@ h1{
 }
 
 #homeTitle {
-  color: rgb(255, 255, 255);
+  /* color: rgb(255, 255, 255); */
+  color: black;
+  font-weight: 500;
 }
 
 #todotableItem:hover {
@@ -271,11 +292,18 @@ h1{
 #hikeInfo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px;
+  border-bottom-style: groove;
+  border-bottom-right-radius: 100px;
+  border-width: 10px;
+  border-color: orange;
   padding-left: 10px;
-  width: 350px;
-  height: 150px;
+  width: 300px;
+  height: 100px;
+  background-color: rgba(182, 234, 183, 0.686);
+  font-weight: 500;
 }
+
+
 
 #users {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -336,7 +364,7 @@ h1{
 
 
 
-
+/* 
 .ticker {
   display: flex;
   flex-wrap: wrap;
@@ -399,7 +427,7 @@ h1{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
-}
+} */
 
 /* #aboutParagraph {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -422,12 +450,12 @@ h1{
   text-align: center;
 }
 
-#about{
+#about {
   margin-top: 70%;
   color: rgb(255, 255, 255);
   font-size: 18pt;
   background-color: rgb(255, 170, 60);
-  
+
 }
 
 #privacy {
@@ -439,6 +467,8 @@ h1{
   font-weight: 800;
   padding-left: 10px;
   padding-right: 10px;
+  background-color: rgba(182, 234, 183, 0.350);
+  /* background-color: rgba(246, 237, 237, 0.747); */
 }
 
 #contact {
@@ -459,9 +489,7 @@ h1{
   display: flex;
 } */
 
-#logo{
+#logo {
   position: relative;
   margin-left: -25vh;
 }
-
-
