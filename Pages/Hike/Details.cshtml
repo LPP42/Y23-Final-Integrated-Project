@@ -5,22 +5,14 @@
 
 
 <h1>Hike Details</h1>
-<<<<<<< HEAD
 <table id="hikedet">
     <td width="40%">
     @* <dl class="row"> *@
-=======
-<div id="hikeDetails">
-    <div>
-
-<div>
->>>>>>> 6e676eeeade2cd26664705243fb600498a426058
 
         @* <dl class="row"> *@
         <div id="hikeInfo">
             <dd class="col-sm-10">
 
-<<<<<<< HEAD
     <dd class="col-sm-10">
         <label hidden>RouteId:</label>
         <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
@@ -44,25 +36,12 @@
         @foreach (var item in Model.Images)
         {
             <div class="mySlides">
-                @* <div class="numbertext">@item.Description</div> *@
                 <img src="@Url.Content(@item.File)" style="width:100%">
             </div>
-            
-            @* <div class="galleryI">
-                <a target="_blank" href="@Url.Content(@item.File)">
-                    <img src="@Url.Content(@item.File)" width="600px" height="500px">
-                </a>
-                <div class="galleryD">@item.Description</div>
-            </div> *@
-            @* <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
-            <td>@item.Description</td> *@
         }
-        
-            <!-- Next and previous buttons -->
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="nexi" onclick="plusSlides(1)">&#10095;</a>
 
-            <!-- Image text -->
             <div class="caption-container">
                 <p id="caption"></p>
             </div>
@@ -80,39 +59,7 @@
 
 
 
-
-=======
-                <label>Hike name:</label>
-                @Html.DisplayFor(model => model.Hike.Name)
-            </dd>
-
-            <dd class="col-sm-10">
-                <label hidden>RouteId:</label>
-                <label hidden id="routeId">@Html.DisplayFor(model => model.Hike.Route.RouteId)</label>
-                <br hidden>
-                <label>Route name:</label>
-                @Html.DisplayFor(model => model.Hike.Route.Name)
-                <br>
-                <label>Distance:</label>
-                @Html.DisplayFor(model => model.Hike.Route.Distance)
-                <br>
-                <label>Difficulty:</label>
-                @Html.DisplayFor(model => model.Hike.Route.Difficulty)
-        </div><br>
-        <textarea cols="30" rows="10" class="details-description" readonly>@Html.DisplayFor(model => model.Hike.Description)   
-            </textarea>
-        <div id="imgsDetails">@foreach (var item in Model.Images)
-            {
-                <td id="detail-images"><img src="@Url.Content(@item.File)" width="200px" height="180px" /></td>
-                <td>@item.Description</td>
-            }
-        </div>
-
-
-
-        </dd>
-    </div>
->>>>>>> 6e676eeeade2cd26664705243fb600498a426058
+    <script src="~/js/Slider.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' />
 
@@ -130,12 +77,6 @@
                     User Name
                 </th>
             </tr>
-<<<<<<< HEAD
-        }
-        <script src="~/js/Slider.js"></script>
-    </tbody>
-</table>
-=======
         </thead>
         <tbody>
             @foreach (var item in Model.Hiker)
@@ -151,7 +92,6 @@
             }
         </tbody>
     </table>
->>>>>>> 6e676eeeade2cd26664705243fb600498a426058
 
 <div>
 
