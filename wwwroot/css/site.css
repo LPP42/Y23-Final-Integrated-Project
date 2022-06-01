@@ -196,6 +196,8 @@ h1:hover {
   transition: 0.3s;
   border-radius: 5px;
   padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 #userHover:hover {
@@ -223,6 +225,29 @@ h1:hover {
   background-color: rgba(246, 237, 237, 0.747);
   padding-left: 10px;
 }
+
+#mapRoute {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 350px;
+  height: 550px;
+  /* height:220px; */
+}
+
+#mapRouteDisplay {
+  display: flex;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: rgba(246, 237, 237, 0.747);
+
+}
+
 
 
 
