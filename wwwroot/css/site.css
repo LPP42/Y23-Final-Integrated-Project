@@ -37,7 +37,23 @@ header {
   position: relative;
   width: 100%;
 }
-
+#registerTable{
+  width: 600px;
+  background-color:rgba(212, 239, 157, 0.500);
+  
+}
+#manageAcountTable {
+  background-color:rgba(212, 239, 157, 0.500);
+}
+.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
+#Username.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
+#Email.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
 .mySlides {
   display: none;
 
@@ -429,6 +445,14 @@ h1 {
   border-radius: 5px;
   padding-left: 10px;
   font-weight: 500;
+}
+#contact-us{
+  background-color: rgba(246, 237, 237, 0.530);
+  border-radius: 1px;
+  border-width: 1px;
+}
+#contactHeader{
+  background-color: rgba(246, 237, 237, 0.600);
 }
 
 #detail-images {
