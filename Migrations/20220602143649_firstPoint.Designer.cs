@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,9 +10,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    partial class StoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20220602143649_firstPoint")]
+    partial class firstPoint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
@@ -61,6 +63,9 @@ namespace Lab3.Migrations
                     b.Property<int>("RouteId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("isStart")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("ImageId");
 
                     b.HasIndex("RouteId");
@@ -72,9 +77,6 @@ namespace Lab3.Migrations
                 {
                     b.Property<int>("PointId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool>("IsStart")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal?>("Lat")

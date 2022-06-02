@@ -14,7 +14,7 @@ let mapInit = async function () {
     });
 }
 mapInit();
-
+ 
 let route = {};
 
 let markers = [];
@@ -85,10 +85,17 @@ SaveRouteEl.addEventListener('click', async function (e) {
 
     console.log(newRouteJson.routeId);
 
-
+    let isFirst = true;
+    let newPoint;
     markers.forEach((el) => {
-
-        let newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"RouteId": newRouteJson.routeId }
+        if (isFirst){
+            console.log(isFirst);
+            newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"RouteId": newRouteJson.routeId, "IsStart": true };
+            isFirst=false;
+            console.log(isFirst);
+        } else {
+            console.log("dsd");
+            newPoint = { "Lat": el.coordinates.lat, "Lng": el.coordinates.lng,"RouteId": newRouteJson.routeId, "IsStart": false  }}
         console.log(newPoint);
 
         let newPointData = fetch(PointServiceUrl, {

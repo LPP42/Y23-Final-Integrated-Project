@@ -32,21 +32,29 @@ async function showRoute() {
             Accept: 'application/json'
         },
     });
+    //console.log(routePoints);
     let routePointsJson = await (await routePoints).json();
-    // console.log(routePointsJson);
+    //console.log(routePointsJson);
 
     routePointsJson.forEach(el => {
-        let marker = new mapboxgl.Marker();
-        let coordinates = {};
-        console.log("lat:", el.lat, " lng:", el.lng);
-        coordinates = { lng: el.lng, lat: el.lat };
-        markers.push({ marker: marker, coordinates: coordinates });
-
+        if (el.isStart==true) {
+            let marker = new mapboxgl.Marker({ "color": "#b20456" }).setLngLat([el.lng, el.lat]).setPopup(new mapboxgl.Popup().setHTML(`Starting Point`)).addTo(map).togglePopup();
+            let coordinates = {};
+            //console.log(el);
+            coordinates = { lng: el.lng, lat: el.lat };
+            markers.push({ marker: marker, coordinates: coordinates });
+        } else {
+            let marker = new mapboxgl.Marker();
+            let coordinates = {};
+            //console.log(el);
+            coordinates = { lng: el.lng, lat: el.lat };
+            markers.push({ marker: marker, coordinates: coordinates });
+        }
     });
-    console.log("Markers: ", markers);
+    //console.log("Markers: ", markers);
 
     markers.forEach(el => {
-        console.log(el);
+        //console.log(el);
         el.marker.setLngLat(el.coordinates).addTo(map);
     });
 }
