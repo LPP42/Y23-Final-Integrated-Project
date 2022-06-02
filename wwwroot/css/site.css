@@ -23,8 +23,6 @@ body {
   background-size: 100%;
 }
 
-
-
 header {
   margin-bottom: 100px;
 }
@@ -36,7 +34,7 @@ header {
 
 #registerTable {
   width: 600px;
-  background-color: rgba(212, 239, 157, 0.500);
+  background-color: rgba(188, 188, 188, 0.5);
 
 }
 
@@ -647,3 +645,25 @@ h1 {
   /* background-color: red; */
   padding-left: 15%;
 }
+
+h1,
+h2,
+h3{
+  color: white;
+}
+
+.col-md-4{
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-left: 5%;
+}
+
+main h1 {
+  margin-left: 5%;
+}
+
+.create-account-page{
+  width: fit-content;
+  margin: auto;
+  margin-top: 25vh;
+}
+
