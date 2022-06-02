@@ -12,4 +12,5 @@ public class PointView
     public decimal? Lat { get; set; }
     public decimal? Lng { get; set; }
     public int RouteId { get; set; }
+    public bool IsStart { get; set; }
 }

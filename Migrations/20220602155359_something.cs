@@ -235,7 +235,8 @@ namespace Lab3.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Lat = table.Column<decimal>(type: "decimal(9,6)", nullable: true),
                     Lng = table.Column<decimal>(type: "decimal(9,6)", nullable: true),
-                    RouteId = table.Column<int>(type: "INTEGER", nullable: false)
+                    RouteId = table.Column<int>(type: "INTEGER", nullable: false),
+                    IsStart = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

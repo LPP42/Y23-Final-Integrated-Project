@@ -4,49 +4,49 @@
 @{
     ViewData["Title"] = "Create";
 }
-<h1>Create</h1>
+<div class="create-hike-form">
+    <h1>Create Hike</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Hike.Name" class="control-label"></label>
+                    <input asp-for="Hike.Name" class="form-control" />
+                    <span asp-validation-for="Hike.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hike.Route" class="control-label"></label>
+                    <select asp-for="Hike.RouteId" class="form-control" asp-items="@Model.RouteNameSL">
+                        <option value="">-- Select Route --</option>
+                    </select>
+                    <span asp-validation-for="Hike.RouteId" class="text-danger"></span>
 
-<h4>Hike</h4>
-@* <hr /> *@
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Hike.Name" class="control-label"></label>
-                <input asp-for="Hike.Name" class="form-control" />
-                <span asp-validation-for="Hike.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hike.Route" class="control-label"></label>
-                <select asp-for="Hike.RouteId" class="form-control" asp-items="@Model.RouteNameSL">
-                    <option value="">-- Select Route --</option>
-                </select>
-                <span asp-validation-for="Hike.RouteId" class="text-danger"></span>
+                    <a href="../Map/Map">Create a new route</a>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Hike.ScheduledTime" class="control-label"></label>
+                    <input class="form-control" asp-for="Hike.ScheduledTime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
+                </div>
 
-                <a href="../Map/Map">Create a new route</a>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hike.ScheduledTime" class="control-label"></label>
-                <input class="form-control" asp-for="Hike.ScheduledTime" asp-format="{0:yyyy-MM-ddTHH:mm}" />
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Hike.Description" class="control-label"></label>
-                <textarea asp-for="Hike.Description" class="form-control description-text-box"></textarea>
-                <span asp-validation-for="Hike.Description" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Hike.Description" class="control-label"></label>
+                    <textarea asp-for="Hike.Description" class="form-control description-text-box"></textarea>
+                    <span asp-validation-for="Hike.Description" class="text-danger"></span>
+                </div>
 
 
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+              
+            </form>
+              
+        </div>
+         
     </div>
-</div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
+   <a asp-page="Index" id="back-to-list" >Back to List</a>
 </div>
 
 @section Scripts {

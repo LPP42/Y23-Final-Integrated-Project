@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lab3.Migrations
 {
     [DbContext(typeof(StoreDBContext))]
-    [Migration("20220601183234_something")]
+    [Migration("20220602155359_something")]
     partial class something
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,9 @@ namespace Lab3.Migrations
                 {
                     b.Property<int>("PointId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsStart")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal?>("Lat")
