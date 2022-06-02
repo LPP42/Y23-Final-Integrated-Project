@@ -42,7 +42,7 @@ header {
   background-color:rgba(212, 239, 157, 0.500);
   
 }
-#manageAcountTable {
+/* #manageAcountTable {
   background-color:rgba(212, 239, 157, 0.500);
 }
 .form-control{
@@ -53,7 +53,7 @@ header {
 }
 #Email.form-control{
   background-color:rgba(212, 239, 157, 0.500);
-}
+} */
 .mySlides {
   display: none;
 
@@ -560,3 +560,32 @@ h1 {
 text-decoration: underline;
 color: rgb(0, 6, 179);
 }
+
+.create-hike-form{
+  width: 50%;
+  margin: auto;
+  margin-top: 125px;
+  color: black;
+  font-size: 16pt;
+  /* background-color: aliceblue; */
+}
+
+.create-hike-form *{
+ margin: auto;
+ padding-bottom: 4px;
+}
+
+.create-hike-form h1 {
+  width: fit-content;
+}
+
+.create-hike-form a {
+  text-decoration: underline;
+}
+
+#back-to-list{
+margin-left: 35%;
+width: fit-content;
+/* background-color: #c81c1c; */
+}
+
