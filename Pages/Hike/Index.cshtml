@@ -100,7 +100,9 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.ScheduledTime)
                         </td>
-
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Route.Name)
+                        </td>
                         <td>
                             <a asp-page="./Details" asp-route-id="@item.HikeId">Details</a>
 

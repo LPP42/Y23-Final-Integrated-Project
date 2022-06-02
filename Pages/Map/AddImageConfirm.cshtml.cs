@@ -41,6 +41,6 @@ namespace Lab3.Pages_Map
             return Page();
         }
 
-
+ 
     }
 }
