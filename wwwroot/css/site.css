@@ -33,15 +33,13 @@ header {
   box-sizing: border-box;
 }
 
-.galcontainer {
-  position: relative;
-  width: 100%;
-}
-#registerTable{
+
+#registerTable {
   width: 600px;
-  background-color:rgba(212, 239, 157, 0.500);
-  
+  background-color: rgba(212, 239, 157, 0.500);
+
 }
+
 /* #manageAcountTable {
   background-color:rgba(212, 239, 157, 0.500);
 }
@@ -82,18 +80,6 @@ header {
 .nexi {
   right: 0;
   border-radius: 3px 0 0 3px;
-}
-
-.prev:hover,
-.nexi:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.caption-container {
-  text-align: center;
-  background-color: #222;
-  padding: 2px 16px;
-  color: white;
 }
 
 .row:after {
@@ -325,7 +311,7 @@ h1 {
   transition: 0.3s;
   border-radius: 5px; */
   /* background-color: rgba(246, 237, 237, 0.747); */
-  background-color: rgba(34, 34, 34,0.3);
+  background-color: rgba(34, 34, 34, 0.3);
   color: white;
   font-size: 16pt;
   padding: 0;
@@ -529,16 +515,16 @@ h1 {
   margin-left: 2%;
 }
 
-.map-page-not-logged-in *{
+.map-page-not-logged-in * {
   color: white;
 }
 
-.map-page-not-logged-in a{
+.map-page-not-logged-in a {
   text-decoration: underline;
 }
 
 
-.contact-us{
+.contact-us {
 
   background-color: rgba(246, 237, 237, 0.530);
   margin: auto;
@@ -550,18 +536,18 @@ h1 {
   color: black;
 }
 
-.contact-us center{
+.contact-us center {
   background-color: rgba(255, 255, 255, 0.9);
   font-size: 20pt;
   margin-bottom: 1.5%;
 }
 
-.contact-us a{
-text-decoration: underline;
-color: rgb(0, 6, 179);
+.contact-us a {
+  text-decoration: underline;
+  color: rgb(0, 6, 179);
 }
 
-.create-hike-form{
+.create-hike-form {
   width: 50%;
   margin: auto;
   margin-top: 125px;
@@ -570,9 +556,10 @@ color: rgb(0, 6, 179);
   /* background-color: aliceblue; */
 }
 
-.create-hike-form *{
- margin: auto;
- padding-bottom: 4px;
+.create-hike-form * {
+  margin: auto;
+  padding-bottom: 4px;
+  
 }
 
 .create-hike-form h1 {
@@ -583,9 +570,80 @@ color: rgb(0, 6, 179);
   text-decoration: underline;
 }
 
-#back-to-list{
-margin-left: 35%;
-width: fit-content;
-/* background-color: #c81c1c; */
+#back-to-list {
+  margin-left: 35%;
+  width: fit-content;
+  /* background-color: #c81c1c; */
 }
 
+.hike-details-page * {
+  color: white;
+  height: fit-content;
+}
+
+.hike-details-page textarea {
+  color: white;
+  height: 200px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+#hikedet td {
+  /* background-color: yellow; */
+  margin: 0;
+  padding: 0;
+  /* display: inline; */
+}
+
+.hike-details {
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 20pt;
+  padding: 5px;
+}
+
+.gal-border {
+  /* background-color: orange; */
+  width: 500px;
+  height: 350px;
+  margin-left: 700px;
+}
+
+.galcontainer {
+  margin: auto;
+  max-height: 350px;
+}
+
+.details-map {
+  margin: auto;
+  margin-top: 5000px;
+}
+
+.caption-container {
+  text-align: center;
+  padding: 2px 16px;
+  color: white;
+}
+
+.photo-arrows a {
+  margin-right: 330px;
+}
+
+.user-list{ 
+  margin-bottom: 15px;
+}
+
+.page-delete-hike-form{
+  width: 70%;
+  margin: auto;
+  padding: 5px;
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255,0.8);
+}
+
+
+.page-delete-hike-form dd{ 
+  /* background-color: red; */
+  padding-left: 15%;
+}
