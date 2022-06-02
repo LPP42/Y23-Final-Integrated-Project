@@ -4,11 +4,13 @@
 @{
 	ViewData["Title"] = "Sign Up for Hike";
 }
-<h4>Signed Up for Hike</h4>
+<h1>Signed Up for Hike</h1>
 <hr />
 @Html.Raw(TempData["msg"])
-<div>
-	<a asp-page="../Hike/Index">Back to Hikes</a>
-	@* <a class="nav-link text-dark" asp-area="" asp-page="/Product/Index">Products</a> *@
+<div id="hikeSignUp">
+	<div>
+		<a asp-page="../Hike/Index">Back to Hikes</a>
+		@* <a class="nav-link text-dark" asp-area="" asp-page="/Product/Index">Products</a> *@
+	</div>
+	<div><a href="/Signup/View">My Scheduled Hikes</a></div>
 </div>
-<div><a href="/Signup/View">My Scheduled Hikes</a></div>

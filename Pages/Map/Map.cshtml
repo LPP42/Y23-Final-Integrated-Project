@@ -13,7 +13,7 @@
     <div id="mapRoute">
         @if (UserManager.GetUserName(User) != null)
         {
-            <button class="btns" id="BtnSaveRoute">Save Route</button>
+            <label>Create a route by placing points on the map and then save it</label>
             <br>
             <label>Give this route a name:</label>
             <input type="text" id="routeName">
@@ -37,6 +37,8 @@
                     }
                 </select>
             </p>
+            <button class="btns" id="BtnSaveRoute">Save Route</button>
+            
         }
     </div>
     <div id="map"></div>

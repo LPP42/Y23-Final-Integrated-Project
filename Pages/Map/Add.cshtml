@@ -4,12 +4,15 @@
 @{
 	ViewData["Title"] = "Route Saved";
 }
-<h4>Route Saved to the List of Routes</h4>
-<hr />
-@Html.Raw(TempData["msg"])
-<div>
-	<a asp-page="../Hike/Index">List of Hikes</a>
-	@* <a class="nav-link text-dark" asp-area="" asp-page="/Product/Index">Products</a> *@
+
+<div class="added-route-page">
+	<h4>Route Saved to the List of Routes</h4>
+	<hr />
+	@Html.Raw(TempData["msg"])
+	<div>
+		<a asp-page="../Hike/Index">List of Hikes</a>
+		@* <a class="nav-link text-dark" asp-area="" asp-page="/Product/Index">Products</a> *@
+	</div>
+	<div><a href="../Map/AddImage">Add Images for Route</a></div>
+	<div><a href="../Map/Map">Save another Route</a></div>
 </div>
-<div><a href="../Map/AddImage">Add Images for Route</a></div>
-<div><a href="../Map/Map">Save another Route</a></div>
