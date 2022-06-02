@@ -559,6 +559,7 @@ h1 {
 .create-hike-form * {
   margin: auto;
   padding-bottom: 4px;
+  
 }
 
 .create-hike-form h1 {
@@ -581,8 +582,11 @@ h1 {
 }
 
 .hike-details-page textarea {
-  color: black;
+  color: white;
   height: 200px;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
 #hikedet td {
@@ -628,4 +632,18 @@ h1 {
 
 .user-list{ 
   margin-bottom: 15px;
+}
+
+.page-delete-hike-form{
+  width: 70%;
+  margin: auto;
+  padding: 5px;
+  border-radius: 1%;
+  background-color: rgba(255, 255, 255,0.8);
+}
+
+
+.page-delete-hike-form dd{ 
+  /* background-color: red; */
+  padding-left: 15%;
 }
