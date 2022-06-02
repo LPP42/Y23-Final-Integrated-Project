@@ -446,14 +446,8 @@ h1 {
   padding-left: 10px;
   font-weight: 500;
 }
-#contact-us{
-  background-color: rgba(246, 237, 237, 0.530);
-  border-radius: 1px;
-  border-width: 1px;
-}
-#contactHeader{
-  background-color: rgba(246, 237, 237, 0.600);
-}
+
+
 
 #detail-images {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -541,4 +535,28 @@ h1 {
 
 .map-page-not-logged-in a{
   text-decoration: underline;
+}
+
+
+.contact-us{
+
+  background-color: rgba(246, 237, 237, 0.530);
+  margin: auto;
+  margin-top: 125px;
+  width: 50%;
+  text-align: center;
+  padding: 3px;
+  font-size: 16pt;
+  color: black;
+}
+
+.contact-us center{
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 20pt;
+  margin-bottom: 1.5%;
+}
+
+.contact-us a{
+text-decoration: underline;
+color: rgb(0, 6, 179);
 }
