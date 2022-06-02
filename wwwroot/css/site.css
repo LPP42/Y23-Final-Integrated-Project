@@ -449,7 +449,7 @@ h1 {
 }
 
 #create-hike {
-  color: white;
+  color: white ;
   font-size: 20pt;
   font-weight: bold;
   text-decoration: underline;
@@ -640,6 +640,10 @@ h1 {
   background-color: rgba(255, 255, 255,0.8);
 }
 
+.page-delete-hike-form h1{
+color: black;
+}
+
 
 .page-delete-hike-form dd{ 
   /* background-color: red; */
@@ -653,8 +657,8 @@ h3{
 }
 
 .col-md-4{
-  background-color: rgba(0, 0, 0, 0.3);
-  margin-left: 5%;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  margin: auto;
 }
 
 main h1 {
@@ -667,3 +671,16 @@ main h1 {
   margin-top: 25vh;
 }
 
+.form-label{
+  color: white;
+}
+
+p a {
+  color: white;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-link{
+  color: black !important;
+}
