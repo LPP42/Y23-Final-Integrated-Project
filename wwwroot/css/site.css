@@ -240,8 +240,6 @@ h1 {
   color: white;
   width: fit-content;
   margin: auto;
-  
-
 }
 
 
@@ -307,23 +305,24 @@ h1 {
 }
 
 #mapRoute {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px;
-  background-color: rgba(246, 237, 237, 0.747);
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 350px;
-  height: 550px;
+  border-radius: 5px; */
+  /* background-color: rgba(246, 237, 237, 0.747); */
+  background-color: rgba(34, 34, 34,0.5);
+  color: white;
+  font-size: 16pt;
+  padding: 0;
+  width: 275px;
+  height: fit-content;
 }
 
 #mapRouteDisplay {
   display: flex;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
-  background-color: rgba(246, 237, 237, 0.747);
+  background-color: rgba(246, 237, 237, 0.747); */
 }
 
 .ticker {
@@ -452,19 +451,19 @@ h1 {
   font-size: 20pt;
   font-weight: bold;
   text-decoration: underline;
-  padding: 5px; 
+  padding: 5px;
 }
 
-#create-hike:hover{
+#create-hike:hover {
   color: rgb(255, 170, 60);
 }
 
-.hikes-page-content{
+.hikes-page-content {
   /* background-color: wheat; */
   display: flex;
 }
 
-.search-menu{
+.search-menu {
   /* background-color: aqua; */
   width: 10%;
   color: white;
@@ -479,7 +478,6 @@ h1 {
   width: 80%;
   height: 700px;
   border-radius: 1%;
-
 }
 
 #calendar {
@@ -488,9 +486,24 @@ h1 {
   padding: 60px;
 }
 
+#map {
+  width: 80%;
+}
+
+.added-route-page * {
+  color: white;
+  padding-left: 3px;
+  font-size: 28pt;
+}
+
+.added-route-page a {
+  color: white;
+  text-decoration: underline;
+  font-size: 18pt;
+}
 
 
-
-
-
+.added-route-page a:hover {
+  color: rgb(255, 170, 60);
+}
 
