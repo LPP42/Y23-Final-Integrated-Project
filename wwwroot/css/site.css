@@ -50,7 +50,23 @@ header {
   position: relative;
   width: 100%;
 }
-
+#registerTable{
+  width: 600px;
+  background-color:rgba(212, 239, 157, 0.500);
+  
+}
+#manageAcountTable {
+  background-color:rgba(212, 239, 157, 0.500);
+}
+.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
+#Username.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
+#Email.form-control{
+  background-color:rgba(212, 239, 157, 0.500);
+}
 .mySlides {
   display: none;
 
