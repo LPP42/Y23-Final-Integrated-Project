@@ -413,7 +413,7 @@ h1 {
 
 
 #privacy {
-  background-color: rgb(255, 255, 255,0.2);
+  background-color: rgb(255, 255, 255, 0.2);
   font-size: 18pt;
   color: black;
   width: 80%;
@@ -422,7 +422,7 @@ h1 {
   margin: auto;
 }
 
-.privacy-title{
+.privacy-title {
   width: fit-content;
   margin: auto;
   padding-bottom: 25px;
@@ -454,7 +454,7 @@ h1 {
 }
 
 #create-hike {
-  color: white ;
+  color: white;
   font-size: 20pt;
   font-weight: bold;
   text-decoration: underline;
@@ -476,6 +476,10 @@ h1 {
   color: white;
   font-size: 16pt;
   margin-left: 4px;
+}
+
+#SearchName {
+  width: 130px;
 }
 
 #hikeCalendar {
@@ -562,7 +566,7 @@ h1 {
 .create-hike-form * {
   margin: auto;
   padding-bottom: 4px;
-  
+
 }
 
 .create-hike-form h1 {
@@ -611,7 +615,7 @@ h1 {
   width: 500px;
   height: 350px;
   margin-left: 700px;
-  
+
 }
 
 .galcontainer {
@@ -619,8 +623,9 @@ h1 {
   height: 350px;
 
 }
-.galcontainer img{
-height: 350px;
+
+.galcontainer img {
+  height: 350px;
 
 }
 
@@ -636,40 +641,40 @@ height: 350px;
 }
 
 .photo-arrows a {
-  top:58vh;
+  top: 58vh;
   margin-right: 150px;
   /* background-color: #c81c1c; */
 }
 
-.user-list{ 
+.user-list {
   margin-bottom: 15px;
 }
 
-.page-delete-hike-form{
+.page-delete-hike-form {
   width: 70%;
   margin: auto;
   padding: 5px;
   border-radius: 1%;
-  background-color: rgba(255, 255, 255,0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
-.page-delete-hike-form h1{
-color: black;
+.page-delete-hike-form h1 {
+  color: black;
 }
 
 
-.page-delete-hike-form dd{ 
+.page-delete-hike-form dd {
   /* background-color: red; */
   padding-left: 15%;
 }
 
 h1,
 h2,
-h3{
+h3 {
   color: white;
 }
 
-.col-md-4{
+.col-md-4 {
   /* background-color: rgba(0, 0, 0, 0.3); */
   margin: auto;
 }
@@ -678,13 +683,13 @@ main h1 {
   margin-left: 5%;
 }
 
-.create-account-page{
+.create-account-page {
   width: fit-content;
   margin: auto;
   margin-top: 25vh;
 }
 
-.form-label{
+.form-label {
   color: white;
 }
 
@@ -694,22 +699,22 @@ p a {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.nav-link{
+.nav-link {
   color: black !important;
 }
 
-.add-image-page{
+.add-image-page {
   width: fit-content;
   margin: auto;
   margin-top: 150px;
   font-size: 18pt;
   color: white;
-  background-color: rgba(0, 0, 0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
   padding: 10px;
 }
 
-.title2{
+.title2 {
   text-align: center;
-  font-size:26pt;
+  font-size: 26pt;
   font-weight: bold;
 }
