@@ -74,6 +74,9 @@ namespace Lab3.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsStart")
+                        .HasColumnType("INTEGER");
+
                     b.Property<decimal?>("Lat")
                         .HasColumnType("decimal(9,6)");
 

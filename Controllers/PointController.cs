@@ -28,7 +28,7 @@ public class PointController : ControllerBase
         var result = await _context.Point.ToListAsync();
         foreach (Point p in result)
         {
-            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId });
+            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId, IsStart = p.IsStart });
         }
         return PointList;
     }
@@ -42,7 +42,7 @@ public class PointController : ControllerBase
         var result = await _context.Point.Where(r => r.RouteId == id).ToListAsync();
         foreach (Point p in result)
         {
-            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId });
+            PointList.Add(new PointView { PointId = p.PointId, Lat = p.Lat, Lng = p.Lng, RouteId = p.RouteId, IsStart = p.IsStart });
         }
         return PointList;
     }

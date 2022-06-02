@@ -17,4 +17,5 @@ public class Point
     public virtual Route? Route { get; set; }
     // [JsonIgnore]
     public int RouteId { get; set; }
+    public bool IsStart {get;set;} 
 }
