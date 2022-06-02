@@ -38,7 +38,14 @@
                 </select>
             </p>
             <button class="btns" id="BtnSaveRoute">Save Route</button>
-            
+
+        }
+        else
+        {
+            <div class="map-page-not-logged-in">
+                <div>You must be logged in to save routes</div>
+                <a href="../Identity/Account/Login">Login</a>
+            </div>
         }
     </div>
     <div id="map"></div>
