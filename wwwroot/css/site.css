@@ -446,6 +446,14 @@ h1 {
   padding-left: 10px;
   font-weight: 500;
 }
+#contact-us{
+  background-color: rgba(246, 237, 237, 0.530);
+  border-radius: 1px;
+  border-width: 1px;
+}
+#contactHeader{
+  background-color: rgba(246, 237, 237, 0.600);
+}
 
 #detail-images {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
