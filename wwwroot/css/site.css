@@ -14,23 +14,6 @@ html {
 
 }
 
-h1 {
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s; */
-  /* border-bottom-style: dashed;
-  border-top-style: dashed; */
-  border-style: double;
-  border-end-start-radius: 100px;
-  border-end-end-radius: 100px;
-  border-width: 10px;
-  border-color: black;
-  padding-left: 10px;
-  width: 800px;
-  height: 100px;
-  background-color: rgba(195, 198, 228, 0.35);
-  text-align: center;
-}
-
 body {
   border: 0;
   margin-bottom: 0px;
@@ -262,9 +245,7 @@ h1 {
 
 
 #homeTitle {
-  /* color: rgb(255, 255, 255); */
-  color: black;
-  font-weight: 500;
+  color: rgb(255, 255, 255);
 }
 
 #todotableItem:hover {
@@ -285,18 +266,11 @@ h1 {
 #hikeInfo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-bottom-style: groove;
-  border-bottom-right-radius: 100px;
-  border-width: 10px;
-  border-color: orange;
+  border-radius: 5px;
   padding-left: 10px;
-  width: 300px;
-  height: 100px;
-  background-color: rgba(182, 234, 183, 0.686);
-  font-weight: 500;
+  width: 350px;
+  height: 150px;
 }
-
-
 
 #users {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -351,12 +325,6 @@ h1 {
   background-color: rgba(246, 237, 237, 0.747); */
 }
 
-<<<<<<< HEAD
-=======
-
-
-/* 
->>>>>>> 7614611a77d1598476557763e4491eadfc8f6f71
 .ticker {
   display: flex;
   flex-wrap: wrap;
@@ -419,7 +387,7 @@ h1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
-} */
+}
 
 #aboutTitle {
   font-size: xx-large;
@@ -429,19 +397,11 @@ h1 {
 }
 
 #about {
-<<<<<<< HEAD
   margin-top: 44%;
   color: rgb(255, 255, 255);
   font-size: 18pt;
   width: 70%;
   margin-left: 15%;
-=======
-  margin-top: 70%;
-  color: rgb(255, 255, 255);
-  font-size: 18pt;
-  background-color: rgb(255, 170, 60);
-
->>>>>>> 7614611a77d1598476557763e4491eadfc8f6f71
 }
 
 #videoBox {
@@ -461,8 +421,6 @@ h1 {
   font-weight: 800;
   padding-left: 10px;
   padding-right: 10px;
-  background-color: rgba(182, 234, 183, 0.350);
-  /* background-color: rgba(246, 237, 237, 0.747); */
 }
 
 #contact {
@@ -471,8 +429,6 @@ h1 {
   border-radius: 5px;
   padding-left: 10px;
   font-weight: 500;
-
-
 }
 
 #detail-images {
@@ -490,7 +446,6 @@ h1 {
   margin-left: -25vh;
 }
 
-<<<<<<< HEAD
 #create-hike {
   color: white;
   font-size: 20pt;
@@ -550,23 +505,4 @@ h1 {
 
 .added-route-page a:hover {
   color: rgb(255, 170, 60);
-}
-=======
-#hikeSignUp {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-bottom-style: groove;
-  /* border-bottom-right-radius: 100px; */
-  border-radius: 500px;
-  border-width: 10px;
-  border-color: green;
-  padding-left: 10px;
-  width: 300px;
-  height: 100px;
-  background-color: rgba(182, 234, 183, 0.500);
-  font-weight: 500;
-  text-align: center;
->>>>>>> 7614611a77d1598476557763e4491eadfc8f6f71
-
-
 }
